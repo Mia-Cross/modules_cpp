@@ -73,6 +73,6 @@ void Contact::display_contact_info(void)
     std::cout << "FAVORITE MEAL : " << this->fav_meal << std::endl;
     std::cout << "UNDERWEAR COLOR : " << this->u_color << std::endl;
     std::cout << "DARKEST SECRET : " << this->d_secret << std::endl;
-}
+};
 
 #endif
