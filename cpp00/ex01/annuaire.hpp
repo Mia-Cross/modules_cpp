@@ -21,29 +21,17 @@ class Contact
     std::string fav_meal;
     std::string u_color;
     std::string d_secret;
-    void create_dummy(void);
     void fill_contact_info(void);
     void display_contact_info(void);
     Contact(void);
+    ~Contact(void);
 };
 
 Contact::Contact(void)
 {};
 
-void Contact::create_dummy(void)
-{ 
-    this->f_name = "Mia";
-    this->l_name = "Cross";
-    this->nickname = "MC";
-    this->login = "mcross";
-    this->p_addr = "96 bd Bessieres";
-    this->e_addr = "mcross@student.42.fr";
-    this->p_number = "0123456789";
-    this->b_date = "31 dec";
-    this->fav_meal = "pizza";
-    this->u_color = "pink";
-    this->d_secret = "stole something in a shop once";
-};
+Contact::~Contact(void)
+{};
 
 void Contact::fill_contact_info(void)
 {

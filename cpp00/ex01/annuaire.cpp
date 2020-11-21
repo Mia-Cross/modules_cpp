@@ -1,6 +1,8 @@
 #include "annuaire.hpp"
 
-void display_contacts(Contact *contact)
+std::string input;
+
+void display_contacts(Contact *contact, int nb_cont)
 {
     int i;
 
@@ -9,7 +11,7 @@ void display_contacts(Contact *contact)
     std::cout << std::setw(11) << "LAST_NAME|";
     std::cout << std::setw(11) << "NICKNAME|" << std::endl;
     i = -1;
-    while (++i < 8)
+    while (++i < nb_cont)
     {
         std::cout << std::setw(10) << i + 1 << "|";
         std::cout << std::setw(10) << contact[i].f_name << "|";
@@ -20,12 +22,15 @@ void display_contacts(Contact *contact)
 
 void get_correct_input(int *ind, int nb_cont)
 {
-    std::string input;
-
     *ind = 0;
     if (nb_cont == 0)
         nb_cont = 1;
     std::cin >> input;
+    if (input.compare("EXIT") == 0)
+    {
+        std::cout << "OK, BYE !" << std::endl;
+        exit(0);
+    }
     std::stringstream(input) >> *ind;
     if (*ind > 0 && *ind <= nb_cont)
         return ;
@@ -40,7 +45,6 @@ void get_correct_input(int *ind, int nb_cont)
 int main (int ac, char **av)
 {
     Contact contact[8];
-    std::string input;
     int i = 0;
     int ind = 0;
     int nb_cont = 0;
@@ -63,12 +67,15 @@ int main (int ac, char **av)
         }
         else if (input.compare("SEARCH") == 0)
         {
-            if (nb_cont == 0)
-                contact[0].create_dummy();
-            display_contacts(contact);
-            std::cout << "WHICH IS THE INDEX OF THE CONTACT YOU WANT TO DISPLAY ?" << std::endl;
-            get_correct_input(&ind, nb_cont);
-            contact[ind - 1].display_contact_info();
+            display_contacts(contact, nb_cont);
+            if (nb_cont > 0)
+            {
+                std::cout << "WHICH IS THE INDEX OF THE CONTACT YOU WANT TO DISPLAY ?" << std::endl;
+                get_correct_input(&ind, nb_cont);
+                contact[ind - 1].display_contact_info();
+            }
+            else
+                std::cout << "NO CONTACT YET..." << std::endl;
             std::cout << "WHAT DO YOU WANT TO DO ? (ADD, SEARCH, EXIT)" << std::endl;
         }
     }
