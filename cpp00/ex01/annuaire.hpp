@@ -1,8 +1,15 @@
-#include <iostream>
-#include <string>
+#ifndef CONTACT_CLASS_H
+# define CONTACT_CLASS_H
+
+# include <sstream>
+# include <iostream>
+# include <iomanip>
+# include <string>
+# include <ctime>
 
 class Contact
 {
+  public:
     std::string f_name;
     std::string l_name;
     std::string nickname;
@@ -14,20 +21,70 @@ class Contact
     std::string fav_meal;
     std::string u_color;
     std::string d_secret;
-  public:
-    void fill_info (std::string value);
-} contact;
+    void create_dummy(void);
+    void fill_contact_info(void);
+    void display_contact_info(void);
+    Contact(void);
+};
 
-void Contact::fill_info (std::string value)
+Contact::Contact(void)
+{};
+
+void Contact::create_dummy(void)
+{ 
+    this->f_name = "Mia";
+    this->l_name = "Cross";
+    this->nickname = "MC";
+    this->login = "mcross";
+    this->p_addr = "96 bd Bessieres";
+    this->e_addr = "mcross@student.42.fr";
+    this->p_number = "0123456789";
+    this->b_date = "31 dec";
+    this->fav_meal = "pizza";
+    this->u_color = "pink";
+    this->d_secret = "stole something in a shop once";
+};
+
+void Contact::fill_contact_info(void)
 {
-    int i;
-    std::string input;
-    char *to_fill = Contact::f_name;
+    std::cout << "OK, PLEASE ENTER -FIRST NAME- :" << std::endl;
+    getline (std::cin, this->f_name);
+    std::cout << "OK, PLEASE ENTER -LAST NAME- :" << std::endl;
+    getline (std::cin, this->l_name);
+    std::cout << "OK, PLEASE ENTER -NICKNAME- :" << std::endl;
+    getline (std::cin, this->nickname);
+    std::cout << "OK, PLEASE ENTER -LOGIN- :" << std::endl;
+    getline (std::cin, this->login);
+    std::cout << "OK, PLEASE ENTER -POSTAL ADDRESS- :" << std::endl;
+    getline (std::cin, this->p_addr);
+    std::cout << "OK, PLEASE ENTER -EMAIL ADDRESS-:" << std::endl;
+    getline (std::cin, this->e_addr);
+    std::cout << "OK, PLEASE ENTER -PHONE NUMBER- :" << std::endl;
+    getline (std::cin, this->p_number);
+    std::cout << "OK, PLEASE ENTER -BIRTHDAY DATE- :" << std::endl;
+    getline (std::cin, this->b_date);
+    std::cout << "OK, PLEASE ENTER -FAVORITE MEAL- :" << std::endl;
+    getline (std::cin, this->fav_meal);
+    std::cout << "OK, PLEASE ENTER -UNDERWEAR COLOR- :" << std::endl;
+    getline (std::cin, this->u_color);
+    std::cout << "OK, PLEASE ENTER -DARKEST SECRET- :" << std::endl;
+    getline (std::cin, this->d_secret);
+    std::cout << this->f_name << " WAS SUCCESFULLY ADDED :)" << std::endl;
+};
 
-    for (i = 0; i < 11; i++)
-    {
-        std::cout << "OK, PLEASE ENTER -FIRST NAME- :" << std::endl;
-        getline (std::cin, input);
-        to_fill++ = input;
-    }
+void Contact::display_contact_info(void)
+{
+    std::cout << "FIRST NAME : " << this->f_name << std::endl;
+    std::cout << "LAST NAME : " << this->l_name << std::endl;
+    std::cout << "NICKNAME : " << this->nickname << std::endl;
+    std::cout << "LOGIN : " << this->login << std::endl;
+    std::cout << "POSTAL ADDRESS : " << this->p_addr << std::endl;
+    std::cout << "EMAIL ADDRESS : " << this->e_addr << std::endl;
+    std::cout << "PHONE NUMBER : " << this->p_number << std::endl;
+    std::cout << "BIRTHDAY DATE : " << this->b_date << std::endl;
+    std::cout << "FAVORITE MEAL : " << this->fav_meal << std::endl;
+    std::cout << "UNDERWEAR COLOR : " << this->u_color << std::endl;
+    std::cout << "DARKEST SECRET : " << this->d_secret << std::endl;
 }
+
+#endif
