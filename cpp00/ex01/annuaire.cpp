@@ -8,13 +8,13 @@ int c = 0;
 
 void display_contacts(void)
 {
-    int i = -1;
+    int i;
 
     std::cout << std::setw(11) << "INDEX|";
     std::cout << std::setw(11) << "FIRST_NAME|";
     std::cout << std::setw(11) << "LAST_NAME|";
     std::cout << std::setw(11) << "NICKNAME|" << std::endl;
-    while (++i < nb_cont)
+    for (i = 0; i < nb_cont; i++)
     {
         std::cout << std::setw(10) << i + 1 << "|";
         std::cout << std::setw(10) << contact[i].f_name << "|";

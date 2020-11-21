@@ -10,6 +10,7 @@
 class Contact
 {
   public:
+
     std::string f_name;
     std::string l_name;
     std::string nickname;
@@ -21,10 +22,12 @@ class Contact
     std::string fav_meal;
     std::string u_color;
     std::string d_secret;
-    void fill_contact_info(void);
-    void display_contact_info(void);
+
     Contact(void);
     ~Contact(void);
+
+    void fill_contact_info(void);
+    void display_contact_info(void);
 };
 
 Contact::Contact(void)
