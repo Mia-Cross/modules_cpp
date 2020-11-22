@@ -1,40 +1,10 @@
-#ifndef CONTACT_CLASS_H
-# define CONTACT_CLASS_H
-
-# include <sstream>
-# include <iostream>
-# include <iomanip>
-# include <string>
-# include <ctime>
-
-class Contact
-{
-  public:
-
-    std::string f_name;
-    std::string l_name;
-    std::string nickname;
-    std::string login;
-    std::string p_addr;
-    std::string e_addr;
-    std::string p_number;
-    std::string b_date;
-    std::string fav_meal;
-    std::string u_color;
-    std::string d_secret;
-
-    Contact(void);
-    ~Contact(void);
-
-    void fill_contact_info(void);
-    void display_contact_info(void);
-};
+#include "Contact.class.hpp"
 
 Contact::Contact(void)
-{};
+{}
 
 Contact::~Contact(void)
-{};
+{}
 
 void Contact::fill_contact_info(void)
 {
@@ -61,7 +31,7 @@ void Contact::fill_contact_info(void)
     std::cout << "OK, PLEASE ENTER -DARKEST SECRET- :" << std::endl;
     getline (std::cin, this->d_secret);
     std::cout << this->f_name << " WAS SUCCESFULLY ADDED :)" << std::endl;
-};
+}
 
 void Contact::display_contact_info(void)
 {
@@ -76,6 +46,22 @@ void Contact::display_contact_info(void)
     std::cout << "FAVORITE MEAL : " << this->fav_meal << std::endl;
     std::cout << "UNDERWEAR COLOR : " << this->u_color << std::endl;
     std::cout << "DARKEST SECRET : " << this->d_secret << std::endl;
-};
+}
 
-#endif
+void Contact::print_search(int i)
+{
+    std::cout << std::setw(10) << i + 1 << "|";
+    if (this->f_name.length() < 11) 
+        std::cout << std::setw(10) << this->f_name << "|";
+    else
+        std::cout << this->f_name.substr(0, 9) << ".|";
+    if (this->l_name.length() < 11) 
+        std::cout << std::setw(10) << this->l_name << "|";
+    else
+        std::cout << this->l_name.substr(0, 9) << ".|";
+    if (this->nickname.length() < 11) 
+        std::cout << std::setw(10) << this->nickname << "|";
+    else
+        std::cout << this->nickname.substr(0, 9) << ".|";
+    std::cout << std::endl;
+}

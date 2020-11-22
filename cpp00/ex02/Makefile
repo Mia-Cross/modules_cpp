@@ -1,10 +1,10 @@
-NAME = annuaire_nul
+NAME = job
 
 CC = clang++
 FLAGS = -Wall -Wextra -Werror
-SRCS = annuaire.cpp \
-	Contact.class.cpp
-INCLUDES =	-I Contact.class.hpp
+SRCS = Account.class.cpp \
+	tests.cpp
+INCLUDES =	-I Account.class.hpp
 OBJDIR =	.obj
 OBJS =	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 DPDCS =	$(OBJS:.o=.d)

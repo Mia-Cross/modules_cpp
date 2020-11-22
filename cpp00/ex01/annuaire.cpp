@@ -1,4 +1,4 @@
-#include "annuaire.hpp"
+#include "Contact.class.hpp"
 
 Contact contact[8];
 std::string input;
@@ -15,12 +15,7 @@ void display_contacts(void)
     std::cout << std::setw(11) << "LAST_NAME|";
     std::cout << std::setw(11) << "NICKNAME|" << std::endl;
     for (i = 0; i < nb_cont; i++)
-    {
-        std::cout << std::setw(10) << i + 1 << "|";
-        std::cout << std::setw(10) << contact[i].f_name << "|";
-        std::cout << std::setw(10) << contact[i].l_name << "|";
-        std::cout << std::setw(10) << contact[i].nickname << "|" << std::endl;
-    }
+        contact[i].print_search(i);
 }
 
 void get_correct_input(void)
