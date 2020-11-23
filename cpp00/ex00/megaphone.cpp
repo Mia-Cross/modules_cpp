@@ -1,21 +1,16 @@
 #include <iostream>
-#include <string>
 
 int main (int ac, char **av)
 {
-   std::string input;
    int i;
+   int j;
 
     if (ac < 2)
-    {
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-        return 0;
-    }
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
     for (i = 1; i < ac; i++)
     {
-        input = av[i];
-        for (char c : input)
-            putchar(toupper(c));
+        for (j = 0; av[i][j] != '\0'; j++)
+            putchar(toupper(av[i][j]));
     }
     std::cout << std::endl;
     return 0;
