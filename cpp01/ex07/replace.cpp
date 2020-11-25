@@ -1,107 +1,65 @@
 #include <fstream>
 #include <iostream>
+#include <string>
 
-std::string file_to_str(std::ifstream input)
+std::string array_to_str(char *arr)
 {
-    std::string file;
-    std::string element;
+    std::string str;
+    int i;
 
-    while (input >> element)
-        file.append(element);
-    return (file);
+    for (i = 0; arr[i] != '\0'; i++)
+        str += arr[i];
+    return (str);
 }
 
-void search_for_needle(std::ifstream input, std::ofstream output, std::string s1, int index)
+void clean_buffer(char *buffer)
 {
-    
+    int i;
+
+    for (i = 0; i < 30; i++)
+        buffer[i] = '\0';
+}
+
+void read_to_str(char *name, std::string *buf)
+{
+    std::ifstream input(name);
+    char buffer[30];
+    int i;
+
+    while (input.read(buffer, 30))
+    {
+        for (i = 0; buffer[i] != '\0' && i < 30; i++)
+            *buf += buffer[i];
+        clean_buffer(buffer);
+    }
+    for (i = 0; buffer[i] != '\0' && i < 30; i++)
+        *buf += buffer[i];
 }
 
 int main(int ac, char **av)
 {
-    std::cout << "bufstr";
     if (ac != 4)
     {
         std::cout << "Wrong input\n./replace filename to_be_replaced replacement\n";
         return 0;
     }
-
-    std::ifstream input(av[1]);
-    std::string s1 = av[2];
-    std::string s2 = av[3];
+    std::string s1 = array_to_str(av[2]);
+    std::string s2 = array_to_str(av[3]);
     std::string name = av[1];
     std::ofstream output(name.append(".out"));
-    std::string bufstr;
-    std::string candidate;
-    std::string sub;
-    char c;
-    int i;
-    char buffer[30];
-    size_t ret;
+    std::string buf;
+    int index;
 
-    while (input.read(buffer, 30))
+    read_to_str(av[1], &buf);
+    index = buf.find(s1);
+    while (index >= 0)
     {
-        for (i = 0; buffer[i] != '\0' && i < 30; i++)
-            bufstr[i] = buffer[i];
-        if ((ret = bufstr.find(av[2][0])) && ret)
+        if (index < buf.size())
         {
-            output << bufstr.substr(0, ret);
-            if (s1.size() <= 30 - ret)
-            {
-                candidate = bufstr.substr(ret, s1.size());
-                if (candidate.compare(s1) == 0)
-                {
-                    output << s2;
-                    candidate = "";
-                }
-            }
-            else
-            {
-                sub = bufstr.substr(ret, (30 - ret));
-                input.read(buffer, 30);
-                bufstr = "";
-                for (i = 0; buffer[i] != '\0' && i < 30; i++)
-                    bufstr[i] = buffer[i];
-                sub.append(bufstr);
-                candidate = bufstr.substr(ret, s1.size());
-                if (candidate.compare(s1) == 0)
-                {
-                    output << s2;
-                    candidate = "";
-                }
-                else
-                {
-                    output << candidate;
-                }
-            }
+            output << buf.substr(0, index) << s2;
+            buf = buf.substr(index + s1.size());
         }
-        else
-        {
-            output << bufstr;
-            bufstr = "";
-        }
+        index = buf.find(s1);
     }
- /*
-    std::string str ("There are two needles in this haystack with needles.");
-  std::string str2 ("needle");
-
-  // different member versions of find in the same order as above:
-  std::size_t found = str.find(str2);
-  if (found!=std::string::npos)
-    std::cout << "first 'needle' found at: " << found << '\n';
-
-  found=str.find("needles are small",found+1,6);
-  if (found!=std::string::npos)
-    std::cout << "second 'needle' found at: " << found << '\n';
-
-  found=str.find("haystack");
-  if (found!=std::string::npos)
-    std::cout << "'haystack' also found at: " << found << '\n';
-
-  found=str.find('.');
-  if (found!=std::string::npos)
-    std::cout << "Period found at: " << found << '\n';
-
-  // let's replace the first needle:
-  str.replace(str.find(str2),str2.length(),"preposition");
-  std::cout << str << '\n'; */
+    output << buf;
 }

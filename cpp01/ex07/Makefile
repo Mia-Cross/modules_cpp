@@ -2,8 +2,7 @@ NAME = replace
 
 CC = clang++
 FLAGS = -Wall -Wextra -Werror -fsanitize=address
-SRCS = new.cpp
-#INCLUDES =	-I Account.class.hpp
+SRCS = replace.cpp
 OBJDIR =	.obj
 OBJS =	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 DPDCS =	$(OBJS:.o=.d)
