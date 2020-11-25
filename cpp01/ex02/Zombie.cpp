@@ -1,8 +1,8 @@
 #include "Zombie.hpp"
 #include <iostream>
 
-Zombie::Zombie(std::string name, std::string type) : _name(name), _type(type) {
-    std::cout << this->_name << ", a " << this->_type << " zombie is born.\n";
+Zombie::Zombie(std::string name) : _name(name) {
+    std::cout << "A zombie named " << this->_name << " is born.\n";
 }
 
 Zombie::~Zombie() {
@@ -11,4 +11,8 @@ Zombie::~Zombie() {
 
 void Zombie::advert() {
     std::cout << "<" << this->_name << " (" << this->_type << ")> Braiiiiiinnnsssss...\n";
+}
+
+void Zombie::setZombieType(std::string type) {
+    this->_type = type;
 }

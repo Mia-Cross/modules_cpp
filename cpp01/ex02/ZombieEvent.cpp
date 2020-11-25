@@ -3,12 +3,14 @@
 #include <cstdlib>
 #include <ctime>
 
-ZombieEvent::ZombieEvent(std::string setType) : _setZombieType(setType) {
+ZombieEvent::ZombieEvent() {
+}
 
+ZombieEvent::~ZombieEvent() {
 }
 
 Zombie *ZombieEvent::newZombie(std::string name) {
-    Zombie *newZombie = new Zombie(name, this->_setZombieType);
+    Zombie *newZombie = new Zombie(name);
     return (newZombie);
 }
 
@@ -28,9 +30,7 @@ int shuffle_random()
 void ZombieEvent::randomChump()
 {
     int x = shuffle_random() % 10;
-    Zombie chump(names[x], this->_setZombieType);
+    Zombie chump(names[x]);
+    chump.setZombieType("hungry");
     chump.advert();
 }
-
-//void ZombieEvent::setZombieType(std::string type)
-//{}

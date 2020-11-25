@@ -3,19 +3,22 @@
 
 int main()
 {
-    ZombieEvent charming("charming"), cute("cute");
+    ZombieEvent event; //charming("charming"), cute("cute");
 
-    charming.randomChump();
+    event.randomChump();
 
-    Zombie *baby = cute.newZombie("Jane");
+    Zombie *baby = event.newZombie("Jane");
+    baby->setZombieType("charming");
     baby->advert();
     delete baby;
 
-    Zombie *baby2 = charming.newZombie ("Marvin");
+    Zombie *baby2 = event.newZombie ("Marvin");
+    baby2->setZombieType("cute");
+
+    event.randomChump();
+
     baby2->advert();
     delete baby2;
 
-    cute.randomChump();
-    
-    charming.randomChump();
+    event.randomChump();
 }

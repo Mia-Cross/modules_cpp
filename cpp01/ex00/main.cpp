@@ -1,6 +1,26 @@
 #include "Pony.hpp"
 #include <iostream>
 
+void ponyOnTheStack(std::string h_color, std::string t_color)
+{
+    Pony stackPony(h_color, t_color);
+
+    stackPony.takeStep(5);
+    stackPony.magicTail("pink");
+    stackPony.runThisWay("north");
+}
+
+void ponyOnTheHeap(std::string h_color, std::string t_color)
+{
+    Pony *heapPony;
+    
+    heapPony = new Pony(h_color, t_color);
+    heapPony->takeStep(10);
+    heapPony->magicTail("blue");
+
+    delete heapPony;
+}
+
 int main(void)
 {
     std::cout << "Let's put a Pony on the Stack :" << std::endl << std::endl;

@@ -8,7 +8,7 @@ class Zombie {
         Zombie();
         ~Zombie();
         void advert();
-        //void setZombieType(std::string type);
+        void setZombieType(std::string type);
 
     private:
         std::string _name;

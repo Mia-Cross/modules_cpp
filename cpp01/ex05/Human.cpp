@@ -16,5 +16,6 @@ Brain *Human::identify() {
 }
 
 Brain &Human::getBrain() {
-    return (*this->brain);
+    Brain &ref = *this->brain;
+    return (ref);
 } 

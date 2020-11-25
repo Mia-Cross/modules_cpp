@@ -21,7 +21,7 @@ Zombie::Zombie() {
     int x = shuffle_random() % 10;
     int y = shuffle_random() % 5;
     this->_name = names[x];
-    this->_type = types[y];
+    this->setZombieType(types[y]);
     std::cout << this->_name << ", a " << this->_type << " zombie is born.\n";
 }
 
@@ -31,4 +31,8 @@ Zombie::~Zombie() {
 
 void Zombie::advert() {
     std::cout << "<" << this->_name << " (" << this->_type << ")> Braiiiiiinnnsssss...\n";
+}
+
+void Zombie::setZombieType(std::string type) {
+    this->_type = type;
 }
