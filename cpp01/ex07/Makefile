@@ -1,7 +1,7 @@
 NAME = replace
 
 CC = clang++
-FLAGS = -Wall -Wextra -Werror -fsanitize=address
+FLAGS = -Wall -Wextra -Werror
 SRCS = replace.cpp
 OBJDIR =	.obj
 OBJS =	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
