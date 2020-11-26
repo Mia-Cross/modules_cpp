@@ -17,14 +17,12 @@ $(NAME) : $(OBJS)
 	@echo Compiled $(NAME) successfully !
 
 %.o : %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean :
-	@rm $(OBJS)
+	@rm -f $(OBJS)
 
 fclean : clean
-	@rm $(NAME)
+	@rm -f $(NAME)
 
-re :
-	@make fclean
-	@make
+re : fclean all

@@ -1,9 +1,12 @@
 */*/.obj
+*/*/*/.obj
 */*/a.out
 */fr.subject.pdf
 cpp00/ex00/megaphone
 cpp00/ex00/megaphone.o
-cpp00/ex01/annuaire_nul
-cpp00/ex02/job
+cpp00/ex01/annuaire
+cpp00/ex02/accountant
 cpp01/ex07/replace
-
+cpp01/ex07/testing/*.out
+cpp02/ex00/testing/fixed
+cpp02/ex00/testing/*.o

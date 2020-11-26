@@ -1,4 +1,5 @@
 #include "Contact.class.hpp"
+#include <cstdlib>
 
 Contact contact[8];
 std::string input;
@@ -64,7 +65,7 @@ void add_new_contact(void)
     std::cout << "WHAT DO YOU WANT TO DO ? (ADD, SEARCH, EXIT)" << std::endl;
 }
 
-int main (int ac, char **av)
+int main (void)
 {
     std::cout << "WHAT DO YOU WANT TO DO ? (ADD, SEARCH, EXIT)" << std::endl;
     while (getline (std::cin, input) && input.compare("EXIT") != 0)

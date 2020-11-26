@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <cstdlib>
 
 std::string array_to_str(char *arr)
 {
@@ -40,10 +41,12 @@ int main(int ac, char **av)
     std::string s1 = array_to_str(av[2]);
     std::string s2 = array_to_str(av[3]);
     std::string name = av[1];
-    std::ofstream output(name.append(".out"));
-    int index;
+    name.append(".out");
+    const char *cstr = name.c_str();
+    std::ofstream output(cstr);
+    size_t index;
 
-    while ((index = buf.find(s1)) && index >= 0 && index < buf.size())
+    while ((index = buf.find(s1)) && index < buf.size())
     {
         output << buf.substr(0, index) << s2;
         buf = buf.substr(index + s1.size());

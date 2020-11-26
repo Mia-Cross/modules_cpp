@@ -1,7 +1,7 @@
-NAME = job
+NAME = accountant
 
 CC = clang++
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = Account.class.cpp \
 	tests.cpp
 INCLUDES =	-I Account.class.hpp
@@ -23,17 +23,15 @@ $(NAME) : $(OBJS)
 	@echo Compiled $(NAME) successfully !
 
 $(OBJDIR)/%.o : %.cpp | $(OBJDIR)
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 $(OBJDIR) :
 	@mkdir -p .obj
 
 clean :
-	@rm -r $(OBJDIR)
+	@rm -rf $(OBJDIR)
 
 fclean : clean
-	@rm $(NAME)
+	@rm -f $(NAME)
 
-re :
-	@make fclean
-	@make opti
+re : fclean opti
