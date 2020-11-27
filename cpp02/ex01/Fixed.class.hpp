@@ -17,8 +17,9 @@ class Fixed {
         int toInt() const;
 
     private:
-        int rawBits;
-        static const int constant = 8;
+        int fixedPoint;
+        static const int nbBits = 8;
+        //static const int fpoint;
 };
 
 std::ostream & operator<<(std::ostream &out, Fixed const &in);

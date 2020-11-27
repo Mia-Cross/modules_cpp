@@ -13,8 +13,8 @@ class Fixed {
         void setRawBits(int const raw);
 
     private:
-        int rawBits;
-        static const int constant = 8;
+        int fixedPoint;
+        static const int width = 8;
 };
 
 #endif
