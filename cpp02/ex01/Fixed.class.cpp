@@ -45,8 +45,19 @@ void Fixed::setRawBits(int const raw) {
 
 float Fixed::toFloat() const {
     //std::cout << "Function toFloat called\n";
-    float factor = 1 << this->nbBits;
-    return (static_cast<float>(this->fixedPoint / factor));
+    //float factor = 1 << this->nbBits;
+    //return (static_cast<float>(this->fixedPoint / factor));
+    
+    //float x = static_cast<float>(this->fixedPoint);
+    //float x = this->fixedPoint;
+    //const int &y = this->fixedPoint;
+    const int *ptr = &this->fixedPoint;
+    int *i = const_cast<int *>(ptr);
+    float *x = reinterpret_cast<float *>(i);
+    //float &x = dynamic_cast<float &>(y));
+    //float x = (float)this->fixedPoint;
+    //std::cout << x << " = toFloat called\n";
+    return *x;
 }
 
 int Fixed::toInt() const {
