@@ -10,3 +10,5 @@ cpp01/ex07/replace
 cpp01/ex07/testing/*.out
 cpp02/ex00/testing/fixed
 cpp02/ex00/testing/*.o
+#cpp02/ex01/Fixed.cpp
+#cpp02/ex01/Fixed.hpp
