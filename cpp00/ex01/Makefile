@@ -1,7 +1,7 @@
 NAME = annuaire
 
-CC = clang++
-FLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = clang++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = annuaire.cpp \
 	Contact.class.cpp
 INCLUDES =	-I Contact.class.hpp
@@ -19,11 +19,11 @@ all :
 
 $(NAME) : $(OBJS)
 	@printf "[$(NAME)] "
-	$(CC) $(FLAGS) -o $(NAME) ${OBJS}
+	$(CXX) $(CXXFLAGS) -o $(NAME) ${OBJS}
 	@echo Compiled $(NAME) successfully !
 
 $(OBJDIR)/%.o : %.cpp | $(OBJDIR)
-	$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
 $(OBJDIR) :
 	@mkdir -p .obj

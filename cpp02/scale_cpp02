@@ -23,6 +23,8 @@ A member function \"float toFloat( void ) const;\" that converts
 the fixed point value to a float value must be present. Is it functional?
 
 Is it possible to construct an instance from an integer value?
+
+#################  EX_02  #################
 The class must provide a division operator. Is it present and functional?
 The class must provide addition and substraction operators. Are they present and functional?
 The class must provide the pre-increment, post-increment, pre-decrement

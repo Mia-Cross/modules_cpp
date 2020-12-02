@@ -1,7 +1,7 @@
 NAME = megaphone
 
-CC = clang++
-FLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = clang++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = megaphone.cpp
 OBJS =	$(SRCS:.cpp=.o)
 DPDCS =	$(OBJS:.o=.d)
@@ -13,11 +13,11 @@ all :
 
 $(NAME) : $(OBJS)
 	@printf "[$(NAME)] "
-	$(CC) $(FLAGS) -o $(NAME) ${OBJS}
+	$(CXX) $(CXXFLAGS) -o $(NAME) ${OBJS}
 	@echo Compiled $(NAME) successfully !
 
 %.o : %.cpp
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean :
 	@rm -f $(OBJS)

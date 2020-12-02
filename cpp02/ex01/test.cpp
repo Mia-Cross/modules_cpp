@@ -1,10 +1,38 @@
+typedef int BaseType;
+
+class fixed_point
+{
+    //const static BaseType factor = 1 << FracDigits;
+    const static BaseType factor = 1 << 8;
+    BaseType data;
+
+public:
+    fixed_point(double d)
+    {
+        *this = d; // calls operator=
+    }
+    fixed_point& operator=(double d)
+    {
+        data = static_cast<BaseType>(d*factor);
+        return *this;
+    }
+    BaseType raw_data() const
+    {
+        return data;
+    }
+};
+
+//////////////////////////////////////////////////////////////////////////////
 /// Fixed-point Format: 11.5 (16-bit)
 // 11 integral bits, 5 fractional bits
 #include <tgmath.h>
+#include <stdio.h>
+#include <stdint.h>
 
 typedef uint16_t fixed_point_t;
 
 #define FIXED_POINT_FRACTIONAL_BITS 5
+//#define FIXED_POINT_FRACTIONAL_BITS 8
 
 /// Converts 11.5 format -> double
 double fixed_to_float(fixed_point_t input);
@@ -30,3 +58,15 @@ double fixed16_to_double(uint16_t input, uint8_t fractional_bits)
 
 // Equivalent of our 11.5 conversion function above
 //double r = fixed16_to_double(input, 5);
+
+int main()
+{
+    double d1 = 666.0;
+    fixed_point_t fix1 = float_to_fixed(d1);
+
+    fixed_point_t fix2 = 209;
+    double d2 = fixed_to_float(fix2);
+
+    printf("Fixed (from float %f) = %u\n", d1, fix1);
+    printf("Float (from fixed %u) = %f\n", fix2, d2);
+}

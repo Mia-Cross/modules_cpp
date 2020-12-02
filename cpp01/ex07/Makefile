@@ -1,7 +1,7 @@
 NAME = replace
 
-CC = clang++
-FLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = clang++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = replace.cpp
 OBJDIR =	.obj
 OBJS =	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
@@ -17,11 +17,11 @@ all :
 
 $(NAME) : $(OBJS)
 	@printf "[$(NAME)] "
-	$(CC) $(FLAGS) -o $(NAME) ${OBJS}
+	$(CXX) $(CXXFLAGS) -o $(NAME) ${OBJS}
 	@echo Compiled $(NAME) successfully !
 
 $(OBJDIR)/%.o : %.cpp | $(OBJDIR)
-	$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
 $(OBJDIR) :
 	@mkdir -p .obj
