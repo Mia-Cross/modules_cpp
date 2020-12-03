@@ -23,6 +23,34 @@ public:
 };
 
 //////////////////////////////////////////////////////////////////////////////
+//TESTS POUR TO_FLOAT();
+ // const int *src = &this->fixedPoint;
+    // char *srcByte = (char *)src;
+    //float result = 0;
+    // memcpy(&result, &this->fixedPoint, sizeof(float));
+    // float *dest = &result;
+    // char *destByte = (char *)dest;
+    // int i = 0;
+    // while (i < 4)
+    // {
+    //     destByte[i] = srcByte[i];
+    //     i++;
+    // }
+    //return (result);
+
+    //float x = static_cast<float>(this->fixedPoint);
+    //float x = this->fixedPoint;
+    //const int &y = this->fixedPoint;
+    //const int &iRef = this->fixedPoint;
+   // int &iRef = const_cast<int &>(icRef);
+    //float &fRef = static_cast<float>(this->fixedPoint);
+    //float &x = dynamic_cast<float &>(y));
+    //float x = (float)this->fixedPoint;
+    //std::cout << x << " = toFloat called\n";
+    //return fRef;
+
+
+//////////////////////////////////////////////////////////////////////////////
 /// Fixed-point Format: 11.5 (16-bit)
 // 11 integral bits, 5 fractional bits
 #include <tgmath.h>
