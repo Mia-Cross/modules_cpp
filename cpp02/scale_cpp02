@@ -16,6 +16,7 @@ Are these elements present and functional?
 Is it possible to construct an instance from a floating point value?
 
 Is there a << operator overload and is it functional?
+
 A member function "int toInt( void ) const;" that converts the
 fixed point value to an integer value must be present. Is it functional?
 

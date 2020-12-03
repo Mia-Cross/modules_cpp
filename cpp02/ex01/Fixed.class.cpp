@@ -1,33 +1,31 @@
 #include "Fixed.class.hpp"
-#include <tgmath.h>
+#include <cmath>
 
 Fixed::Fixed() {
-   // std::cout << "Default constructor called\n";
+    std::cout << "Default constructor called\n";
     this->fixedPoint = 0;
 }
 
 Fixed::Fixed(int const i) {
- //   std::cout << "Constructor by int called\n";
+    std::cout << "Int constructor called\n";
     this->fixedPoint = i << this->nbBits; // = i * 256;
-    std::cout << "Constructor by int stored " << this->fixedPoint << std::endl;
 }
 Fixed::Fixed(float const f) {
-   // std::cout << "Constructor by float called\n";
+    std::cout << "Float constructor called\n";
     this->fixedPoint = roundf(f * (1 << this->nbBits)); // = roundf(f * 256);
-    std::cout << "Constructor by float stored " << this->fixedPoint << std::endl;
 }
 
 Fixed::~Fixed() {
-    //std::cout << "Destructor called\n";
+    std::cout << "Destructor called\n";
 }
 
 Fixed::Fixed(Fixed const &src) {
-    //std::cout << "Copy constructor called\n";
+    std::cout << "Copy constructor called\n";
     *this = src;
 }
 
 Fixed &Fixed::operator=(Fixed const &that) {
-  //  std::cout << "Assignation operator called\n";
+    std::cout << "Assignation operator called\n";
     if (this != &that)
         this->fixedPoint = that.getRawBits();
     return *this;
@@ -39,27 +37,30 @@ int Fixed::getRawBits() const {
 }
 
 void Fixed::setRawBits(int const raw) {
-    //std::cout << "Setter called\n";
+    //std::cout << "getRawBits member function called\n";
     this->fixedPoint = raw;
 }
 
 float Fixed::toFloat() const {
-    //std::cout << "Function toFloat called\n";
-    //float factor = ;
-    //return ((float)this->fixedPoint / 1 << this->nbBits);
+    //std::cout << "toFloat member function called\n";
+    float factor = 1 << this->nbBits ;
+    return ((float)this->fixedPoint / factor);
     
-    const int *src = &this->fixedPoint;
-    char *srcByte = (char *)src;
-    float result = 0;
-    float *dest = &result;
-    char *destByte = (char *)dest;
-    int i = 0;
-    while (i < 4)
-    {
-        destByte[i] = srcByte[i];
-        i++;
-    }
-    return (result);
+    // const int *src = &this->fixedPoint;
+    // char *srcByte = (char *)src;
+    //float result = 0;
+    // memcpy(&result, &this->fixedPoint, sizeof(float));
+    // float *dest = &result;
+    // char *destByte = (char *)dest;
+    // int i = 0;
+    // while (i < 4)
+    // {
+    //     destByte[i] = srcByte[i];
+    //     i++;
+    // }
+    //return (result);
+
+
     //float x = static_cast<float>(this->fixedPoint);
     //float x = this->fixedPoint;
     //const int &y = this->fixedPoint;
@@ -73,16 +74,12 @@ float Fixed::toFloat() const {
 }
 
 int Fixed::toInt() const {
-    //std::cout << "Function toInt called\n";
+    //std::cout << "toInt member function called\n";
     return ( (int)this->fixedPoint >> this->nbBits); //= fixed / 256;
 }
 
 std::ostream &operator<<(std::ostream &out, Fixed const &in) {
-    out << in.toFloat() << " " << in.toInt();
-    //out << in.toFloat();
-    //int raw = in.getRawBits();
-    //int *iptr = &raw;
-    //float *x = static_cast<float *>(iptr);
-    //out << (float)x;
+    //out << in.toFloat() << " " << in.toInt() << " " << in.getRawBits();
+    out << in.toFloat();
     return (out);
 }
