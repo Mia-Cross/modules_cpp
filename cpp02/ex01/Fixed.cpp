@@ -1,7 +1,7 @@
 #include "Fixed.hpp"
 #include <iostream>
-#include <tgmath.h>
-
+// #include <tgmath.h>
+#include <cmath>
 Fixed::Fixed()
 {
 	this->fixedPointValue = 0;
