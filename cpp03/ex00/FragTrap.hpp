@@ -18,18 +18,20 @@ class FragTrap {
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 
-    private:
-        std::string name;
-        int hitPoints = 100;
-        int maxHitPoints = 100;
-        int energyPoints = 100;
-        int maxEnergyPoints = 100;
-        int level = 1;
-        int meleeAttackDamage = 30;
-        int rangedAttackDamage = 20;
-        int armorDamageReduction = 5;
-};
+        //std::string FragTrap::getName();
+        //int FragTrap::getHitPoints();
 
-std::ostream & operator<<(std::ostream &out, FragTrap const &in);
+    private:
+
+        std::string name;
+        unsigned int hitPoints;
+        static const unsigned int maxHitPoints = 100;
+        unsigned int energyPoints;
+        static const unsigned int maxEnergyPoints = 100;
+        unsigned int level;
+        static const unsigned int meleeAttackDamage = 30;
+        static const unsigned int rangedAttackDamage = 20;
+        static const unsigned int armorDamageReduction = 5;
+};
 
 #endif

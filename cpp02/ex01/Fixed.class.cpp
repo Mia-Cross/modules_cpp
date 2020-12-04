@@ -47,8 +47,6 @@ float Fixed::toFloat() const {
     //std::cout << "toFloat member function called\n";
     float factor = 1 << this->nbBits;
     return ((float)this->fixedPoint / factor);
-    
-   
 }
 
 int Fixed::toInt() const {
