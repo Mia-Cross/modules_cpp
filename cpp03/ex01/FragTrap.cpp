@@ -36,7 +36,7 @@ FragTrap &FragTrap::operator=(FragTrap const &that) {
         this->energyPoints = that.energyPoints;
         this->level = that.level;
     }
-    return (*this);
+    return *this;
 }
 
 //////////////////////// SIMPLE ATTACKS /////////////////////////////////////

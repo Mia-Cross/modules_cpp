@@ -1,27 +1,27 @@
-#ifndef FRAGTRAP_CLASS_H
-# define FRAGTRAP_CLASS_H
+#ifndef SCAVTRAP_CLASS_H
+# define SCAVTRAP_CLASS_H
 
 # include <iostream>
 
-class FragTrap {
+class ScavTrap {
 
-    public:
+    public :
 
-        FragTrap();                        //constructeur par defaut
-        FragTrap(std::string name);
-        ~FragTrap();                       //destructeur par defaut
-        FragTrap(FragTrap const &src);        //constructeur par copie
-        FragTrap &operator=(FragTrap const &that); //surcharge d'operateur d'assignation
+        ScavTrap();
+        ScavTrap(std::string name);
+        ~ScavTrap();
+        ScavTrap(ScavTrap const &src);
+        ScavTrap &operator=(ScavTrap const &that);
 
         void rangedAttack(std::string const &target);
         void meleeAttack(std::string const &target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 
-        unsigned int vaulthunter_dot_exe(std::string const &target);
-        void laserAttack(std::string const &target);
-        void weakAttack(std::string const &target);
-        void electricAttack(std::string const &target);
+        unsigned int challengeNewcomer(std::string const &target);
+        void challengeChess(std::string const &target);
+        void challengeRiddle(std::string const &target);
+        void challengeArmWrestling(std::string const &target);
 
         std::string getName() const;
         unsigned int getMeleeAttackDamage() const;
@@ -35,17 +35,17 @@ class FragTrap {
         void setEnergyPoints(const unsigned int energyPoints);
         void setLevel(const unsigned int level);
 
-    private:
+    private :
 
         std::string name;
         unsigned int hitPoints;
         static const unsigned int maxHitPoints = 100;
         unsigned int energyPoints;
-        static const unsigned int maxEnergyPoints = 100;
+        static const unsigned int maxEnergyPoints = 50;
         unsigned int level;
-        static const unsigned int meleeAttackDamage = 30;
-        static const unsigned int rangedAttackDamage = 20;
-        static const unsigned int armorDamageReduction = 5;
+        static const unsigned int meleeAttackDamage = 20;
+        static const unsigned int rangedAttackDamage = 15;
+        static const unsigned int armorDamageReduction = 3;
 };
 
 #endif
