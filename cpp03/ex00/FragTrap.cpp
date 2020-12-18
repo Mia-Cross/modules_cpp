@@ -4,8 +4,8 @@
 //////////////////////// CANON /////////////////////////////////////
 
 FragTrap::FragTrap() {
-    std::cout << "A brand new robot appears, let's call it \"CL4P-TP\" !\n";
-    this->name = "CL4P-TP";
+    std::cout << "A brand new robot appears, let's call it \"FR4G-TP\" !\n";
+    this->name = "FR4G-TP";
     this->hitPoints = 100;
     this->energyPoints = 100;
     this->level = 1;

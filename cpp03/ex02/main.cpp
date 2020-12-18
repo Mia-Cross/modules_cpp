@@ -1,5 +1,6 @@
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 #include <ctime>
 #include <cstdlib>
 
@@ -17,15 +18,6 @@ int main()
 
     scavTrap.meleeAttack(fragTrap.getName());
     fragTrap.takeDamage(scavTrap.getMeleeAttackDamage());
-    std::cout << std::endl;
-
-    std::cout << scavTrap.getName() << " is confused, it hurts itself in its confusion : ";
-    scavTrap.takeDamage(50);
-    scavTrap.beRepaired(10);
-    std::cout << scavTrap.getName() << " is confused, it hurts itself in its confusion : ";
-    scavTrap.takeDamage(120);
-    scavTrap.beRepaired(120);
-    fragTrap.beRepaired(120);
     std::cout << std::endl;
 
     unsigned int damage;

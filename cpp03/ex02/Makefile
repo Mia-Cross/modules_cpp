@@ -1,9 +1,10 @@
-NAME = scavTrap
+NAME = clapTrap
 
 CXX = clang++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = 	FragTrap.cpp \
 		ScavTrap.cpp \
+		ClapTrap.cpp \
 		main.cpp
 
 OBJDIR =	.obj
