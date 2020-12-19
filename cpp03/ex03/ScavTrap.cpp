@@ -30,7 +30,7 @@ ScavTrap::ScavTrap(std::string name) {
 }
 
 ScavTrap::~ScavTrap() {
-    std::cout << getName() << " exploded in a thousand pieces, it's over...\n";
+    std::cout << getName() << " ran out of power, it's dead...\n";
 }
 
 ScavTrap::ScavTrap(ScavTrap const &src) {

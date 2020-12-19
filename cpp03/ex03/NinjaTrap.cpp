@@ -1,10 +1,12 @@
 #include "NinjaTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 #include <cstdlib>
 
 //////////////////////// CANON /////////////////////////////////////
 
 NinjaTrap::NinjaTrap() {
-    std::cout << "A brand new robot appears, let's call it \"N1NJ4-TP\" !\n";
+    std::cout << "A ninja robot appears, let's call it \"N1NJ4-TP\" !\n";
     setName("N1NJ4-TP");
     setHitPoints(60);
     setMaxHitPoints(60);
@@ -18,7 +20,7 @@ NinjaTrap::NinjaTrap() {
 
 NinjaTrap::NinjaTrap(std::string name) {
     setName(name);
-    std::cout << "A brand new robot appears, let's call it " << getName() << " !\n";
+    std::cout << "A ninja robot appears, let's call it " << getName() << " !\n";
     setHitPoints(60);
     setMaxHitPoints(60);
     setEnergyPoints(120);
@@ -30,7 +32,7 @@ NinjaTrap::NinjaTrap(std::string name) {
 }
 
 NinjaTrap::~NinjaTrap(){
-    std::cout << getName() << " exploded in a million pieces, it's over...\n";
+    std::cout << getName() << " disappeared using an ancestral technique...\n";
 }
 
 NinjaTrap::NinjaTrap(NinjaTrap const &src) {
@@ -70,34 +72,55 @@ void NinjaTrap::meleeAttack(std::string const &target) {
 
 ////////////////////  NINJA SHOEBOX ////////////////////////
 
-
-unsigned int NinjaTrap::ninjaShoebox(std::string const &target)
+void NinjaTrap::ninjaShoebox(ClapTrap &target)
 {
     if (getEnergyPoints() < 25)
     {
         std::cout << getName() << " refuses to attack because it's tired, lazy robot !\n";
-        return (0);
+        return ;
     }
     setEnergyPoints(getEnergyPoints() - 25);
-    int x = rand() % 5;
+    std::cout << getName() << " jumps really high while spinning and lands on " ;
+    std::cout << target.getName() << "'s face, causing 40 points of damage !\n" ;
+    target.takeDamage(40);
+}
 
-    switch (x)
+void NinjaTrap::ninjaShoebox(FragTrap &target)
+{
+    if (getEnergyPoints() < 25)
     {
-        case 0:
-           // this->rangedAttack(target);
-            return (getRangedAttackDamage());
-        case 1:
-           // this->meleeAttack(target);
-            return (getMeleeAttackDamage());
-        case 2:
-           // this->laserAttack(target);
-            return (50);
-        case 3:
-           // this->weakAttack(target);
-            return (10);
-        case 4:
-          //  this->electricAttack(target);
-            return (40);
+        std::cout << getName() << " refuses to attack because it's tired, lazy robot !\n";
+        return ;
     }
-    return (0);
+    setEnergyPoints(getEnergyPoints() - 25);
+    std::cout << getName() << " jumps really high while spinning and lands on " ;
+    std::cout << target.getName() << "'s face, causing 40 points of damage !\n" ;
+    target.takeDamage(40);
+}
+
+void NinjaTrap::ninjaShoebox(ScavTrap &target)
+{
+    if (getEnergyPoints() < 25)
+    {
+        std::cout << getName() << " refuses to attack because it's tired, lazy robot !\n";
+        return ;
+    }
+    setEnergyPoints(getEnergyPoints() - 25);
+    std::cout << getName() << " jumps really high while spinning and lands on " ;
+    std::cout << target.getName() << "'s face, causing 40 points of damage !\n" ;
+    target.takeDamage(40);
+}
+
+void NinjaTrap::ninjaShoebox(NinjaTrap &target)
+{
+    if (getEnergyPoints() < 25)
+    {
+        std::cout << getName() << " refuses to attack because it's tired, lazy robot !\n";
+        return ;
+    }
+    setEnergyPoints(getEnergyPoints() - 25);
+    std::cout << "Although they are brothers and have the same training, ";
+    std::cout << getName() << " jumps really high while spinning and lands on " ;
+    std::cout << target.getName() << "'s face, causing 40 points of damage !\n" ;
+    target.takeDamage(40);
 }

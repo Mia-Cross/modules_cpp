@@ -31,7 +31,7 @@ ClapTrap::ClapTrap(std::string name) : name(name) {
 }
 
 ClapTrap::~ClapTrap(){
-    std::cout << getName() << " exploded in hundreds of pieces, it's over...\n";
+    std::cout << getName() << " has left the chat...\n";
 }
 
 ClapTrap::ClapTrap(ClapTrap const &src) {
@@ -62,11 +62,13 @@ void ClapTrap::rangedAttack(std::string const &target) {
     // std::cout << getName() << " throws an old rusty grenade on " ;
     // std::cout << target << " from a cowardly distance, causing " ;
     // std::cout << getRangedAttackDamage() << " points of damage !\n" ;
+    (void)target;
 }
 void ClapTrap::meleeAttack(std::string const &target) {
     // std::cout << getName() << " courageously pinches " ;
     // std::cout << target << " with its little claws, causing " ;
     // std::cout << getMeleeAttackDamage() << " points of damage !\n" ;
+    (void)target;
 }
 
 ////////////////////  HIT POINTS MANAGEMENT ////////////////////////

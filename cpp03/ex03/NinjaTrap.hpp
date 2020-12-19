@@ -1,7 +1,9 @@
-#ifndef NINJARAP_CLASS_H
+#ifndef NINJATRAP_CLASS_H
 # define NINJATRAP_CLASS_H
 
 # include "ClapTrap.hpp"
+# include "FragTrap.hpp"
+# include "ScavTrap.hpp"
 
 class NinjaTrap : public ClapTrap {
 
@@ -16,7 +18,10 @@ class NinjaTrap : public ClapTrap {
         void rangedAttack(std::string const &target);
         void meleeAttack(std::string const &target);
 
-        unsigned int ninjaShoebox(std::string const &target);
+        void ninjaShoebox(ClapTrap &target);
+        void ninjaShoebox(FragTrap &target);
+        void ninjaShoebox(ScavTrap &target);
+        void ninjaShoebox(NinjaTrap &target);
 };
 
 #endif
