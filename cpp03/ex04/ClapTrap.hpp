@@ -38,7 +38,7 @@ class ClapTrap {
         void setRangedDamage(const unsigned int rangedAttackDamage);
         void setArmorReduction(const unsigned int armorDamageReduction);
 
-    private:
+    protected :
 
         std::string name;
         unsigned int hitPoints;

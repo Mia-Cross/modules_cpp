@@ -1,0 +1,18 @@
+LEFT TO DO :
+
+______________________________________________
+- Module 03 :
+______________________________________________
+Ex04 a terminer :
+- check ou c'est commente
+- s'assurer que les bonnes rangedAttack() et meleeAttack() soient utilises
+- s'assurer qu'il a les bons hp, energy, armor, etc...
+- rendu propre
+--> Verifier le module entier avec la scale
+______________________________________________
+- Module 04 :
+______________________________________________
+Cat *cat        = new Animal(); --> NOT OK !
+Animal *animal  = new Cat();    --> OK !
+    > mais agira comme un Animal
+    > sauf si virtual est specifié dans la méthode (dans le .h)

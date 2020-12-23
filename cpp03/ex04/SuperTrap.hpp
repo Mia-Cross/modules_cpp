@@ -4,7 +4,7 @@
 //# include "FragTrap.hpp"
 # include "NinjaTrap.hpp"
 
-class SuperTrap : public FragTrap, public NinjaTrap {
+class SuperTrap : public virtual FragTrap, public virtual NinjaTrap {
 
     public:
 

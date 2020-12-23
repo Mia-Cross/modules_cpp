@@ -5,15 +5,15 @@
 
 SuperTrap::SuperTrap() {
     std::cout << "A robot appears, it's a bird, it's a plane, no it's \"SUP3R-TP\" !\n";
-    NinjaTrap::setName("SUP3R-TP");
-    FragTrap::setHitPoints(FragTrap::getHitPoints());
-    FragTrap::setMaxHitPoints(FragTrap::getMaxHitPoints());
-    NinjaTrap::setEnergyPoints(NinjaTrap::getEnergyPoints());
-    NinjaTrap::setMaxEnergyPoints(NinjaTrap::getMaxEnergyPoints());
-    NinjaTrap::setLevel(1);
-    NinjaTrap::setMeleeDamage(NinjaTrap::getMeleeAttackDamage());
-    FragTrap::setRangedDamage(FragTrap::getRangedAttackDamage());
-    FragTrap::setArmorReduction(FragTrap::getArmorReduction());
+    setName("SUP3R-TP");
+    setHitPoints(FragTrap::getHitPoints());
+    setMaxHitPoints(FragTrap::getMaxHitPoints());
+    setEnergyPoints(NinjaTrap::getEnergyPoints());
+    setMaxEnergyPoints(NinjaTrap::getMaxEnergyPoints());
+    setLevel(1);
+    setMeleeDamage(NinjaTrap::getMeleeAttackDamage());
+    setRangedDamage(FragTrap::getRangedAttackDamage());
+    setArmorReduction(FragTrap::getArmorReduction());
 }
 
 SuperTrap::SuperTrap(std::string name) {
@@ -58,13 +58,5 @@ SuperTrap &SuperTrap::operator=(SuperTrap const &that) {
 
 //////////////////////// SIMPLE ATTACKS /////////////////////////////////////
 
-void SuperTrap::rangedAttack(std::string const &target) {
-    std::cout << getName() << " throws an old rusty grenade on " ;
-    std::cout << target << " from a cowardly distance, causing " ;
-    std::cout << getRangedAttackDamage() << " points of damage !\n" ;
-}
-void SuperTrap::meleeAttack(std::string const &target) {
-    std::cout << getName() << " courageously pinches " ;
-    std::cout << target << " with its little claws, causing " ;
-    std::cout << getMeleeAttackDamage() << " points of damage !\n" ;
-}
+//gotta have NinjaTrap::meleeAttack(std::string const &target) {}
+//and FragTrap::rangedAttack(std::string const &target) {}
