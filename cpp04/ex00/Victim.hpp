@@ -6,16 +6,19 @@
 class Victim {
 
     public :
-        Victim();
         Victim(std::string name);
         ~Victim();
         Victim(Victim const &src);
         Victim &operator=(Victim const &that);
 
-        void introduceThemselves();
-        void getPolymorphed();
+        std::string introduceThemselves() const;
+        virtual void getPolymorphed() const;
+
+        void setName(std::string const name);
+        std::string getName() const;
 
     private :
+        Victim();
         std::string name;
 };
 

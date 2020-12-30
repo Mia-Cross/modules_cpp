@@ -2,19 +2,21 @@
 # define SORCERER_CLASS_H
 
 # include <iostream>
+# include "Victim.hpp"
 
 class Sorcerer {
 
     public :
-        Sorcerer() = 0;
         Sorcerer(std::string name, std::string title);
         ~Sorcerer();
         Sorcerer(Sorcerer const &src);
         Sorcerer &operator=(Sorcerer const &that);
 
-        void polymorph();
+        std::string introduceThemselves() const;
+        void polymorph(Victim const &victim);
 
     private :
+        Sorcerer();
         std::string name;
         std::string title;
 };
