@@ -1,7 +1,6 @@
 #ifndef SUPERTRAP_CLASS_H
 # define SUPERTRAP_CLASS_H
 
-//# include "FragTrap.hpp"
 # include "NinjaTrap.hpp"
 
 class SuperTrap : public virtual FragTrap, public virtual NinjaTrap {
@@ -13,6 +12,9 @@ class SuperTrap : public virtual FragTrap, public virtual NinjaTrap {
         ~SuperTrap();                       //destructeur par defaut
         SuperTrap(SuperTrap const &src);        //constructeur par copie
         SuperTrap &operator=(SuperTrap const &that); //surcharge d'operateur d'assignation
+
+        void rangedAttack(std::string const &target);
+        void meleeAttack(std::string const &target);
 };
 
 #endif

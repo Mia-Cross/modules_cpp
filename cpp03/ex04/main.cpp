@@ -7,23 +7,26 @@ int main()
     FragTrap fragTrap;
     ScavTrap scavTrap;
     NinjaTrap ninjaTrap;
-    NinjaTrap ninjaDouble("N1NJ4-D0U8L3");
+    SuperTrap superTrap;
 
     srand(std::time(NULL));
     std::cout << std::endl;
 
-    ninjaTrap.rangedAttack(fragTrap.getName());
-    fragTrap.takeDamage(ninjaTrap.getRangedAttackDamage());
+    superTrap.printInfo();
     std::cout << std::endl;
 
-    ninjaTrap.meleeAttack(scavTrap.getName());
-    fragTrap.takeDamage(ninjaTrap.getMeleeAttackDamage());
+    superTrap.rangedAttack(scavTrap.getName());
+    scavTrap.takeDamage(superTrap.getRangedAttackDamage());
     std::cout << std::endl;
 
-    ninjaTrap.ninjaShoebox(fragTrap);
+    superTrap.meleeAttack(fragTrap.getName());
+    fragTrap.takeDamage(superTrap.getMeleeAttackDamage());
     std::cout << std::endl;
-    ninjaTrap.ninjaShoebox(scavTrap);
+
+    superTrap.vaulthunter_dot_exe(scavTrap.getName());
+    scavTrap.takeDamage(superTrap.getMeleeAttackDamage());
     std::cout << std::endl;
-    ninjaTrap.ninjaShoebox(ninjaDouble);
+
+    superTrap.ninjaShoebox(fragTrap);
     std::cout << std::endl;
 }

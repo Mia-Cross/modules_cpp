@@ -4,8 +4,7 @@
 //////////////////////// CANON /////////////////////////////////////
 
 ClapTrap::ClapTrap() {
-    std::cout << "A shoebox appears ! Oh wait no it's actually a robot, ";
-    std::cout << "but its really ugly, ewww... Anyway... ";
+    std::cout << "A shoebox appears ! Oh wait no it's actually a Claptrap robot. ";
     setName("CL4P-TP");
     setHitPoints(0);
     setMaxHitPoints(0);
@@ -17,9 +16,9 @@ ClapTrap::ClapTrap() {
     setArmorReduction(0);
 }
 
-ClapTrap::ClapTrap(std::string name) : name(name) {
-    std::cout << "A shoebox appears ! Oh wait no it's actually a robot, ";
-    std::cout << "but its really ugly, ewww... Anyway... ";
+ClapTrap::ClapTrap(std::string name) {
+    std::cout << "A shoebox appears ! Oh wait no it's actually a Claptrap robot. ";
+    setName(name);
     setHitPoints(0);
     setMaxHitPoints(0);
     setEnergyPoints(0);
@@ -59,15 +58,9 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &that) {
 //////////////////////// SIMPLE ATTACKS /////////////////////////////////////
 
 void ClapTrap::rangedAttack(std::string const &target) {
-    // std::cout << getName() << " throws an old rusty grenade on " ;
-    // std::cout << target << " from a cowardly distance, causing " ;
-    // std::cout << getRangedAttackDamage() << " points of damage !\n" ;
     (void)target;
 }
 void ClapTrap::meleeAttack(std::string const &target) {
-    // std::cout << getName() << " courageously pinches " ;
-    // std::cout << target << " with its little claws, causing " ;
-    // std::cout << getMeleeAttackDamage() << " points of damage !\n" ;
     (void)target;
 }
 
@@ -95,6 +88,13 @@ void ClapTrap::beRepaired(unsigned int amount)
     std::cout << amount << " health points, it seems way better but is still complaining about stuff..." ;
     setHitPoints(getHitPoints() + amount);
     std::cout << "(health is now " << getHitPoints() << ")\n";
+}
+
+void ClapTrap::printInfo() const {
+    std::cout << "[name, level]\t\t\t" << getName() << ", " << getLevel() << std::endl;
+    std::cout << "[hitPoints/maxHitPoints]\t" << getHitPoints() << "/" << getMaxHitPoints() << std::endl;
+    std::cout << "[energyPts/maxEnergyPts]\t" << getEnergyPoints() << "/" << getMaxEnergyPoints() << std::endl;
+    std::cout << "[meleeDmg/rangedDmg/armor]\t" << getMeleeAttackDamage() << "/" << getRangedAttackDamage() << "/" << getArmorReduction() << std::endl;
 }
 
 ////////////////////  GETTERS  ////////////////////////

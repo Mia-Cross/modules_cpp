@@ -82,8 +82,7 @@ It inherits from ClapTrap, and sets the attributes to their appropriate values.
 
 #################  EX_04  #################
 There is a SuperTrap class present.
-It inherits from both the
-FragTrap and the NinjaTrap.
+It inherits from both the FragTrap and the NinjaTrap.
 It sets the attributes to the appropriate values.
 It uses virtual inheritance to avoid the pitfalls of diamond inheritance.
 
