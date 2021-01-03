@@ -33,6 +33,7 @@ $(OBJDIR) :
 clean :
 	@rm -rf $(OBJDIR)
 	@rm -f *.o
+	@rm -f *.out
 
 fclean : clean
 	@rm -f $(NAME)
