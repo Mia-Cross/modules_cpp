@@ -9,6 +9,7 @@ int main()
     ClapTrap clapTrap;
     FragTrap fragTrap;
     ScavTrap scavTrap;
+//    ScavTrap copy(scavTrap);
 
     srand(std::time(NULL));
     std::cout << std::endl;

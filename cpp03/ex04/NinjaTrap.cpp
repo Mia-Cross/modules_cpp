@@ -35,6 +35,28 @@ NinjaTrap::~NinjaTrap(){
     std::cout << getName() << " disappeared using an ancestral technique...\n";
 }
 
+NinjaTrap::NinjaTrap(NinjaTrap const &src) {
+    std::cout << src.getName() << " creates a double of itself like some sort of ninja !\t";
+    *this = src;
+}
+
+NinjaTrap &NinjaTrap::operator=(NinjaTrap const &that) {
+    std::cout << "(Assignation operator called)\n";
+    if (this != &that)
+    {
+        setName(that.getName());
+        setHitPoints(that.getHitPoints());
+        setMaxHitPoints(that.getMaxHitPoints());
+        setEnergyPoints(that.getEnergyPoints());
+        setMaxEnergyPoints(that.getMaxEnergyPoints());
+        setLevel(that.getLevel());
+        setMeleeDamage(that.getMeleeAttackDamage());
+        setRangedDamage(that.getRangedAttackDamage());
+        setArmorReduction(that.getArmorReduction());
+    }
+    return (*this);
+}
+
 //////////////////////// SIMPLE ATTACKS /////////////////////////////////////
 
 void NinjaTrap::rangedAttack(std::string const &target) {

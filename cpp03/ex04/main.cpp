@@ -9,6 +9,11 @@ int main()
     NinjaTrap ninjaTrap;
     SuperTrap superTrap;
 
+    // FragTrap ft(fragTrap);
+    // ScavTrap st(scavTrap);
+    // NinjaTrap nt(ninjaTrap);
+    // SuperTrap sut(superTrap);
+
     srand(std::time(NULL));
     std::cout << std::endl;
 

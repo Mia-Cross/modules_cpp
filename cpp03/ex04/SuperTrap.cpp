@@ -26,6 +26,28 @@ SuperTrap::~SuperTrap(){
     std::cout << getName() << "'s work in done here, it flies away...\n";
 }
 
+SuperTrap::SuperTrap(SuperTrap const &src) {
+    std::cout << src.getName() << " creates a double of itself like some sort of ninja !\t";
+    *this = src;
+}
+
+SuperTrap &SuperTrap::operator=(SuperTrap const &that) {
+    std::cout << "(Assignation operator called)\n";
+    if (this != &that)
+    {
+        setName(that.getName());
+        setHitPoints(that.getHitPoints());
+        setMaxHitPoints(that.getMaxHitPoints());
+        setEnergyPoints(that.getEnergyPoints());
+        setMaxEnergyPoints(that.getMaxEnergyPoints());
+        setLevel(that.getLevel());
+        setMeleeDamage(that.getMeleeAttackDamage());
+        setRangedDamage(that.getRangedAttackDamage());
+        setArmorReduction(that.getArmorReduction());
+    }
+    return (*this);
+}
+
 //////////////////////// SIMPLE ATTACKS /////////////////////////////////////
 
 void SuperTrap::rangedAttack(std::string const &target) {
