@@ -38,11 +38,11 @@ void Enemy::setHP(int hp) {
 }
 
 void Enemy::takeDamage(int damage) {
-    write(1, "&", 1);
-    if (getHP() > 0)
+    //write(1, "&", 1);
+    if (this->getHP() > 0)
     {
-        setHP(getHP() - damage);
-        if (getHP() < 0)
-            setHP(0);
+        this->setHP(this->getHP() - damage);
+        if (this->getHP() < 0)
+            this->setHP(0);
     }
 }

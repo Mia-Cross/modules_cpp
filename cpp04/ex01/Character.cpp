@@ -4,11 +4,11 @@
 Character::Character() {}
 
 Character::Character(std::string const & name) : name(name), ap(40), weapon(NULL) {
-    std::cout << "Character " << getName() << " is ready to kick some ass!\n";
+    std::cout << "Character \"" << getName() << "\" is ready to kick some ass!\n";
 }
 
 Character::~Character() {
-    std::cout << "Character " << getName() << " killed every enemy. What a badass!\n";
+    std::cout << "Character \"" << getName() << "\" killed every enemy. What a badass!\n";
 }
 
 Character::Character(Character const &src) {
@@ -54,7 +54,7 @@ void Character::attack(Enemy* enemy)
     std::cout << this->name << " attacks " << enemy->getType() << " with a ";
     std::cout << this->weapon->getName() << std::endl;
     this->weapon->attack();
-    write(1, "#", 1);
+    //write(1, "#", 1);
     enemy->takeDamage(this->weapon->getDamage());
     if (enemy->getHP() <= 0)
         delete enemy;
