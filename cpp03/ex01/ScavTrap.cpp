@@ -12,7 +12,6 @@ ScavTrap::ScavTrap() {
 }
 
 ScavTrap::ScavTrap(std::string name) : name(name) {
-    //setName(name);
     std::cout << "A brand new robot appears, let's call it " << getName() << " !\n";
     setHitPoints(100);
     setEnergyPoints(50);
@@ -79,6 +78,7 @@ void ScavTrap::beRepaired(unsigned int amount)
     std::cout << "(health is now " << this->hitPoints << ")\n";
 }
 
+
 ////////////////////  CHALLENGE NEWCOMER ////////////////////////
 
 void ScavTrap::challengeChess(std::string const &target) {
@@ -122,6 +122,7 @@ unsigned int ScavTrap::challengeNewcomer(std::string const &target)
     return (0);
 }
 
+
 ////////////////////  GETTERS  ////////////////////////
 
 std::string ScavTrap::getName() const {
@@ -156,4 +157,14 @@ void ScavTrap::setEnergyPoints(const unsigned int energyPoints) {
 }
 void ScavTrap::setLevel(const unsigned int level) {
     this->level = level;
+}
+
+////////////////////  PRINT INFOS  ////////////////////////
+
+void ScavTrap::printInfo() const
+{
+    std::cout << "[name, level]\t\t\t" << getName() << ", " << getLevel() << std::endl;
+    std::cout << "[hitPoints/maxHitPoints]\t" << getHitPoints() << "/" << maxHitPoints << std::endl;
+    std::cout << "[energyPts/maxEnergyPts]\t" << getEnergyPoints() << "/" << maxEnergyPoints << std::endl;
+    std::cout << "[meleeDmg/rangedDmg/armor]\t" << getMeleeAttackDamage() << "/" << getRangedAttackDamage() << "/" << armorDamageReduction << std::endl;
 }

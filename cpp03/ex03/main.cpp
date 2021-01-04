@@ -12,6 +12,9 @@ int main()
     srand(std::time(NULL));
     std::cout << std::endl;
 
+    ninjaTrap.printInfo();
+    std::cout << std::endl;
+
     ninjaTrap.rangedAttack(fragTrap.getName());
     fragTrap.takeDamage(ninjaTrap.getRangedAttackDamage());
     std::cout << std::endl;

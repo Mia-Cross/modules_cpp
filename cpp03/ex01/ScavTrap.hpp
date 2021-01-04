@@ -35,6 +35,8 @@ class ScavTrap {
         void setEnergyPoints(const unsigned int energyPoints);
         void setLevel(const unsigned int level);
 
+        void printInfo() const;
+
     private :
 
         std::string name;

@@ -6,18 +6,24 @@
 
 int main()
 {
+    ClapTrap clapTrap;
     FragTrap fragTrap;
     ScavTrap scavTrap;
 
     srand(std::time(NULL));
     std::cout << std::endl;
 
+    clapTrap.printInfo();
+    fragTrap.printInfo();
+    scavTrap.printInfo();
+    std::cout << std::endl;
+
     scavTrap.rangedAttack(fragTrap.getName());
-    fragTrap.takeDamage(scavTrap.getRangedAttackDamage());
+    fragTrap.rangedAttack(scavTrap.getName());
     std::cout << std::endl;
 
     scavTrap.meleeAttack(fragTrap.getName());
-    fragTrap.takeDamage(scavTrap.getMeleeAttackDamage());
+    fragTrap.meleeAttack(scavTrap.getName());
     std::cout << std::endl;
 
     unsigned int damage;

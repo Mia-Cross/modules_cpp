@@ -11,6 +11,9 @@ int main()
     srand(std::time(NULL));
     std::cout << std::endl;
 
+    scavTrap.printInfo();
+    std::cout << std::endl;
+
     scavTrap.rangedAttack(fragTrap.getName());
     fragTrap.takeDamage(scavTrap.getRangedAttackDamage());
     std::cout << std::endl;

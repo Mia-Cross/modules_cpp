@@ -2,7 +2,6 @@
 # define FRAGTRAP_CLASS_H
 
 # include "ClapTrap.hpp"
-//# include <iostream>
 
 class FragTrap : public ClapTrap {
 

@@ -18,6 +18,8 @@ class ClapTrap {
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 
+        void printInfo() const;
+
         std::string getName() const;
         unsigned int getHitPoints() const;
         unsigned int getMaxHitPoints() const;
@@ -38,7 +40,7 @@ class ClapTrap {
         void setRangedDamage(const unsigned int rangedAttackDamage);
         void setArmorReduction(const unsigned int armorDamageReduction);
 
-    private:
+    protected :
 
         std::string name;
         unsigned int hitPoints;

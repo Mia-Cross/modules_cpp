@@ -13,7 +13,7 @@ class FragTrap : public virtual ClapTrap {
         FragTrap(FragTrap const &src);        //constructeur par copie
         FragTrap &operator=(FragTrap const &that); //surcharge d'operateur d'assignation
 
-        void rangedAttack(std::string const &target);
+        virtual void rangedAttack(std::string const &target);
         void meleeAttack(std::string const &target);
 
         unsigned int vaulthunter_dot_exe(std::string const &target);

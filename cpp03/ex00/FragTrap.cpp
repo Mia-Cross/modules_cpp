@@ -36,7 +36,7 @@ FragTrap &FragTrap::operator=(FragTrap const &that) {
         this->energyPoints = that.energyPoints;
         this->level = that.level;
     }
-    return (*this);
+    return *this;
 }
 
 //////////////////////// SIMPLE ATTACKS /////////////////////////////////////
@@ -161,4 +161,14 @@ void FragTrap::setEnergyPoints(const unsigned int energyPoints) {
 }
 void FragTrap::setLevel(const unsigned int level) {
     this->level = level;
+}
+
+////////////////////  PRINT INFOS  ////////////////////////
+
+void FragTrap::printInfo() const
+{
+    std::cout << "[name, level]\t\t\t" << getName() << ", " << getLevel() << std::endl;
+    std::cout << "[hitPoints/maxHitPoints]\t" << getHitPoints() << "/" << maxHitPoints << std::endl;
+    std::cout << "[energyPts/maxEnergyPts]\t" << getEnergyPoints() << "/" << maxEnergyPoints << std::endl;
+    std::cout << "[meleeDmg/rangedDmg/armor]\t" << getMeleeAttackDamage() << "/" << getRangedAttackDamage() << "/" << armorDamageReduction << std::endl;
 }

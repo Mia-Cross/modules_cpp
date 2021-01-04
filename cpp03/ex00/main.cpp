@@ -11,6 +11,9 @@ int main()
     srand(std::time(NULL));
     std::cout << std::endl;
 
+    fragTrap.printInfo();
+    std::cout << std::endl;
+
     fragTrap.rangedAttack(unfunnyRobot.getName());
     unfunnyRobot.takeDamage(fragTrap.getRangedAttackDamage());
     std::cout << std::endl;
