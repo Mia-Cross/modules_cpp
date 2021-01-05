@@ -16,27 +16,51 @@ int main()
     AWeapon* pr = new PlasmaRifle();
     AWeapon* pf = new PowerFist();
 
-    me->equip(pr);
-    std::cout << *me;
+    std::cout << std::endl;
+
+    me->attack(c);
+
     me->equip(pf);
-
-    me->attack(b);
+    me->attack(c);
     std::cout << *me;
+    me->attack(c);
+    me->recoverAP();
+    me->attack(c);
+    me->recoverAP();
     me->equip(pr);
-    std::cout << *me;
-    me->attack(b);
-    std::cout << *me;
-    me->attack(b);
-    std::cout << *me;
-
     me->attack(c);
     std::cout << *me;
+    me->attack(c);
+    std::cout << std::endl;
+
     me->equip(pf);
+    me->attack(b);
     std::cout << *me;
-    me->attack(c);
+    me->attack(b);
     std::cout << *me;
-    me->attack(c);
+    me->recoverAP();
+    me->recoverAP();
     std::cout << *me;
+    std::cout << std::endl;
 
+    c = new SuperMutant();
+    me->equip(pf);
+    me->attack(c);
+    std::cout << *me;
+    me->attack(c);
+    std::cout << *me;
+    me->attack(c);
+    std::cout << *me;
+    me->attack(c);
+    me->recoverAP();
+    me->equip(pr);
+    me->attack(c);
+    std::cout << *me;
+    std::cout << std::endl;
+
+    delete c;
+    delete pr;
+    delete pf;
+    delete me;
     return 0;
 }

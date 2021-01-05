@@ -3,7 +3,7 @@
 
 # include "Enemy.hpp"
 
-class RadScorpion : public Enemy
+class RadScorpion : public virtual Enemy
 {
     public:
 

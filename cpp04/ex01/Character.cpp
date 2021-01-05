@@ -1,5 +1,4 @@
 #include "Character.hpp"
-#include <unistd.h>
 
 Character::Character() {}
 
@@ -33,6 +32,8 @@ void Character::recoverAP() {
         ap += 10;
         recovered += 10;
     }
+    else
+        std::cout << "Can't recover...\n";
 }
 
 void Character::equip(AWeapon* wp) {
@@ -46,15 +47,15 @@ void Character::equip(AWeapon* wp) {
 
 void Character::attack(Enemy* enemy)
 {
-    if (this->weapon == NULL)
+    if (!this->weapon || this->ap < this->weapon->getAPCost())
+    {
+        std::cout << "Can't attack...\n";
         return;
+    } 
     this->ap -= this->weapon->getAPCost();
-    if (this->ap < 0)
-        return;
     std::cout << this->name << " attacks " << enemy->getType() << " with a ";
     std::cout << this->weapon->getName() << std::endl;
     this->weapon->attack();
-    //write(1, "#", 1);
     enemy->takeDamage(this->weapon->getDamage());
     if (enemy->getHP() <= 0)
         delete enemy;

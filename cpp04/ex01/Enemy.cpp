@@ -1,5 +1,4 @@
 #include "Enemy.hpp"
-#include <unistd.h>
 
 Enemy::Enemy() {}
 
@@ -38,7 +37,6 @@ void Enemy::setHP(int hp) {
 }
 
 void Enemy::takeDamage(int damage) {
-    //write(1, "&", 1);
     if (this->getHP() > 0)
     {
         this->setHP(this->getHP() - damage);
