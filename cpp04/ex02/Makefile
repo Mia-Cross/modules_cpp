@@ -1,11 +1,11 @@
-NAME = ex00
+NAME = ex02
 
 CXX = clang++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 #-g -fsanitize=address
-SRCS = 	Sorcerer.cpp \
-		Victim.cpp \
-		Peon.cpp \
-		main.cpp
+SRCS = 	main.cpp \
+		Squad.cpp \
+		TacticalMarine.cpp \
+		AssaultTerminator.cpp
 
 OBJDIR =	.obj
 OBJS =	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
