@@ -15,11 +15,12 @@ Cure &Cure::operator=(Cure const &ref) {
         setXP(ref.getXP());
         setType("cure");
     }
+    return (*this);
 }
 
 void Cure::use(ICharacter &target) {
     AMateria::use(target);
-    std::cout << "* health " << target.getName() << "'s wounds *\n";
+    std::cout << "* heals " << target.getName() << "'s wounds *\n";
 }
 
 AMateria* Cure::clone() const {

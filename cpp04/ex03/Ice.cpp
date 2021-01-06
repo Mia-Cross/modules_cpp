@@ -15,6 +15,7 @@ Ice &Ice::operator=(Ice const &ref) {
         setXP(ref.getXP());
         setType("ice");
     }
+    return (*this);
 }
 
 void Ice::use(ICharacter &target) {

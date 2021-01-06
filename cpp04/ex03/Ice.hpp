@@ -2,14 +2,13 @@
 # define ICE_H
 
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
 
 class Ice : public AMateria
 {
-    private:
-        Ice();
-
     public:
 
+        Ice();
         Ice(std::string const &type);
         Ice(Ice const &ref);
         Ice &operator=(Ice const &ref);

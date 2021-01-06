@@ -2,8 +2,6 @@
 # define MATERIA_SOURCE_H
 
 # include "IMateriaSource.hpp"
-//# include "AMateria.hpp"
-# include <vector>
 
 class MateriaSource : public IMateriaSource
 {

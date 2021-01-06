@@ -1,7 +1,6 @@
 #ifndef I_CHARACTER_H
 # define I_CHARACTER_H
 
-//# include <iostream>
 # include "AMateria.hpp"
 
 class ICharacter

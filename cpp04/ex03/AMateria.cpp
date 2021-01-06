@@ -10,6 +10,7 @@ AMateria::AMateria(AMateria const &ref) {
 AMateria &AMateria::operator=(AMateria const &ref) {
     if (this != &ref)
         this->_xp = ref.getXP();
+    return (*this);
 }
 AMateria::~AMateria() {}
 

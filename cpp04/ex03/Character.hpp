@@ -2,8 +2,6 @@
 # define CHARACTER_H
 
 # include "ICharacter.hpp"
-# include "AMateria.hpp"
-# include <vector>
 
 class Character : public ICharacter
 {

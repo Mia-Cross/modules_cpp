@@ -2,7 +2,9 @@
 # define A_MATERIA_H
 
 # include <iostream>
-# include "ICharacter.hpp"
+# include <vector>
+
+class ICharacter;
 
 class AMateria
 {
@@ -16,7 +18,7 @@ class AMateria
         AMateria(std::string const &type);
         AMateria(AMateria const &ref);
         AMateria &operator=(AMateria const &ref);
-        ~AMateria();
+        virtual ~AMateria();
 
         std::string const &getType() const;
         unsigned int getXP() const;
