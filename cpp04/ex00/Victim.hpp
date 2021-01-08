@@ -7,9 +7,9 @@ class Victim {
 
     public :
         Victim(std::string name);
-        ~Victim();
         Victim(Victim const &src);
         Victim &operator=(Victim const &that);
+        virtual ~Victim();
 
         std::string introduceThemselves() const;
         virtual void getPolymorphed() const;
