@@ -9,6 +9,7 @@ TacticalMarine::~TacticalMarine() {
 }
 
 TacticalMarine::TacticalMarine(TacticalMarine const &src) {
+    std::cout << "Tactical Marine ready for battle!\n";
     *this = src;
 }
 

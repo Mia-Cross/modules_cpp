@@ -3,7 +3,12 @@
 
 # include "ISpaceMarine.hpp"
 # include "ISquad.hpp"
-# include <vector>
+//# include <vector>
+
+typedef struct s_list {
+    ISpaceMarine *unit;
+    s_list *next;
+}               t_list;
 
 class Squad : public ISquad
 {
@@ -14,13 +19,17 @@ class Squad : public ISquad
         virtual ~Squad();
 
         virtual int getCount() const;
+        virtual void setCount(int const count);
         virtual ISpaceMarine* getUnit(int) const;
         virtual int push(ISpaceMarine*);
-        
-        void clearUnits();
 
     private:
-        std::vector<ISpaceMarine *> units;
+        //std::vector<ISpaceMarine *> units;
+        int count;
+        t_list *first;
+        t_list *last;
+        void clearUnits();
+        int searchUnits(ISpaceMarine *);
 };
 
 #endif
