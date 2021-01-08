@@ -47,3 +47,19 @@ int main()
             cout << "value of x unknown";
     }
 }
+/////
+class Base {
+    public:
+        Base() {cout << "Base Constructor Called\n";}
+        virtual ~Base() {cout << "Base Destructor called\n";}
+};
+class Derived1: public Base {
+    public:
+        Derived1() {cout << "Derived constructor called\n";}
+        ~Derived1() {cout << "Derived destructor called\n";}
+};
+int main() {
+    Base *b = new Derived1();
+    delete b;}
+// if Base destructor is virtual, both Base and Derived destructors will be called
+// else if Base destructor is not virtual, only Base destructor will be called.
