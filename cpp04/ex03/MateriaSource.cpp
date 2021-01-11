@@ -75,38 +75,3 @@ int MateriaSource::searchMateria(std::string const &ref)
     std::cout << "Can't find " << ref << std::endl;
     return (-1);
 }
-
-
-// AMateria    *MateriaSource::getMateria(int index) const
-// {
-//     if (index >= this->nbMateria || index < 0)
-//     {
-//         std::cout << "No materia with index " << index << "\n";
-//         return (NULL);
-//     }
-
-//     t_list *elem = this->first;
-
-//     for (int i = 0; i < index; i++)
-//         elem = elem->next;
-//     return (elem->materia);
-// }
-
-// int MateriaSource::push(AMateria *materia) 
-// {
-//     t_list *to_add = new t_list;
-
-//     to_add->materia = materia;
-//     to_add->next = NULL;
-//     if (this->nbMateria == 0)
-//     {
-//         this->first = to_add;
-//         this->last = to_add;
-//     }
-//     else
-//     {
-//         this->last->next = to_add;
-//         this->last = this->last->next;
-//     }
-//     return (++this->nbMateria);
-// }

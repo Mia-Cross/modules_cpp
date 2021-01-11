@@ -19,7 +19,6 @@ class Squad : public ISquad
         virtual ~Squad();
 
         virtual int getCount() const;
-     //   virtual void setCount(int const count);
         virtual ISpaceMarine* getUnit(int) const;
         virtual int push(ISpaceMarine*);
 
