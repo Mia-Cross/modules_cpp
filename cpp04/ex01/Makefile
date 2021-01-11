@@ -1,7 +1,7 @@
 NAME = ex01
 
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 #-g -fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 SRCS = 	main.cpp \
 		AWeapon.cpp \
 		PlasmaRifle.cpp \

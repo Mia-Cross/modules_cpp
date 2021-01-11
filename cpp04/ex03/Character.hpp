@@ -6,20 +6,16 @@
 class Character : public ICharacter
 {
     private:
+
         std::string     name;
         int             nbMateria;
-        AMateria *inventory[4];
-        void clearMemory();
-     //   t_list          *first;
-     //   t_list          *last;
-     //   virtual AMateria* getMateria(int) const;
-    //    virtual int push(AMateria*);
-      //  int searchMateria(std::string const &);
-      //  void removeMateria(int);
+        AMateria        *inventory[4];
+        void            clearMemory();
         Character();
         //std::vector <AMateria *> inventory; 
 
     public:
+
         Character(std::string const &name);
         Character(Character const &ref);
         Character &operator=(Character const &ref);

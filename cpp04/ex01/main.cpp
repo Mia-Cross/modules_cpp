@@ -12,22 +12,25 @@ int main()
 
     Enemy* b = new RadScorpion();
     Enemy* c = new SuperMutant();
+    Enemy* d = new Enemy(5, "BloodHound");
 
     AWeapon* pr = new PlasmaRifle();
     AWeapon* pf = new PowerFist();
 
     std::cout << std::endl;
 
-    me->attack(c);
+    me->attack(d);
+    me->equip(pr);
+    me->attack(d);
+    std::cout << std::endl;
 
-    me->equip(pf);
     me->attack(c);
     std::cout << *me;
     me->attack(c);
     me->recoverAP();
+    me->equip(pf);
     me->attack(c);
     me->recoverAP();
-    me->equip(pr);
     me->attack(c);
     std::cout << *me;
     me->attack(c);

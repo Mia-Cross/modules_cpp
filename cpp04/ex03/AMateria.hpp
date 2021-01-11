@@ -10,6 +10,7 @@ class ICharacter;
 class AMateria
 {
     private:
+
         std::string type;
         unsigned int _xp;
         AMateria();
@@ -29,10 +30,5 @@ class AMateria
         virtual AMateria* clone() const = 0;
         virtual void use(ICharacter &target);
 };
-
-typedef struct s_list {
-    AMateria *materia;
-    s_list *next;
-}               t_list;
 
 #endif

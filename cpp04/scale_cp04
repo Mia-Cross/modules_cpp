@@ -26,22 +26,16 @@ The required overload of operator << to ostream is present and works correctly.
 ###################  EX 01  ########################
 
 There are concrete SuperMutant and RadScorpion enemies (That inherit
-from Enemy, obviously)
-They have the required attributes.
-The SuperMutant
-has the required overload of takeDamage() and it works as required.
+from Enemy, obviously). They have the required attributes.
+The SuperMutant has the required overload of takeDamage() and it works as required.
 
-There is a Character class. It has the attributes required by
-the subject: name, AP, pointer to AWeapon.
-It has the required AP behavior: 40 on start, it looses X AP on attack
-depending on the weapon, and recovers 10 AP
-with recoverAP up to a maximum of
-40. attack(...) fails if there aren't enough
-AP.
+There is a Character class. It has the attributes required by the subject: name, AP,
+pointer to AWeapon. It has the required AP behavior: 40 on start, it looses X AP on
+attack depending on the weapon, and recovers 10 AP with recoverAP up to a maximum of
+40. attack(...) fails if there aren't enough AP.
 
 There are concrete PlasmaRifle and PowerFirst weapons. (So, they
-inherit from AWeapon)
-They have the attributes and attack() outputs specified
+inherit from AWeapon) They have the attributes and attack() outputs specified
 by the subject.
 
 The equip() and attack() functions work as required. The << overload
@@ -51,8 +45,7 @@ The destructors in AWeapon and its derived classes are virtual.
 There are tests in the main with more derived weapons and more derived enemies. "
 
 The destructors in Enemy and its derived classes are virtual.
-There is an Enemy class. It has the attributes required by the
-subject: type, number of HP
+There is an Enemy class. It has the attributes required by the subject: type, number of HP
 Its member functions are implemented coherently.
 It has the required check in takeDamage to prevent going under 0 HP.
 

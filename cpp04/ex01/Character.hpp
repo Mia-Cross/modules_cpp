@@ -11,7 +11,6 @@ class Character
         std::string name;
         int ap;
         AWeapon *weapon;
-    //    static int recovery;
         Character();
 
     public:

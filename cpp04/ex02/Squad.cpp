@@ -26,9 +26,9 @@ Squad &Squad::operator=(Squad const &that)
 int Squad::getCount() const {
     return (this->count);
 }
-void Squad::setCount(int const count) {
-    this->count = count;
-}
+// void Squad::setCount(int const count) {
+//     this->count = count;
+// }
 
 ISpaceMarine    *Squad::getUnit(int index) const
 {
