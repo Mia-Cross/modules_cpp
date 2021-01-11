@@ -20,7 +20,8 @@ Ice &Ice::operator=(Ice const &ref) {
 
 void Ice::use(ICharacter &target) {
     AMateria::use(target);
-    std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *\t\txp = ";
+    std::cout << this->getXP() - 10 << " -> " << this->getXP() << std::endl;
 }
 
 AMateria* Ice::clone() const {

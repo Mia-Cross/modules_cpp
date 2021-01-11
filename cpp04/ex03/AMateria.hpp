@@ -2,7 +2,8 @@
 # define A_MATERIA_H
 
 # include <iostream>
-# include <vector>
+//# include <vector>
+# include <cstring>
 
 class ICharacter;
 
@@ -28,5 +29,10 @@ class AMateria
         virtual AMateria* clone() const = 0;
         virtual void use(ICharacter &target);
 };
+
+typedef struct s_list {
+    AMateria *materia;
+    s_list *next;
+}               t_list;
 
 #endif

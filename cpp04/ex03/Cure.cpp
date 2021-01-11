@@ -20,7 +20,8 @@ Cure &Cure::operator=(Cure const &ref) {
 
 void Cure::use(ICharacter &target) {
     AMateria::use(target);
-    std::cout << "* heals " << target.getName() << "'s wounds *\n";
+    std::cout << "* heals " << target.getName() << "'s wounds *\t\t\txp = ";
+    std::cout << this->getXP() - 10 << " -> " << this->getXP() << std::endl;
 }
 
 AMateria* Cure::clone() const {
