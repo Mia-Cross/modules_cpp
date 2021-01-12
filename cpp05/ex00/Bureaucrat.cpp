@@ -1,54 +1,56 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() {
-    std::cout << "{creation}" << this->name << this->grade << "\n";
+Bureaucrat::Bureaucrat() {}
+
+Bureaucrat::Bureaucrat(std::string const &name, int const grade) : name(name), grade(grade) {
+    std::cout << "{creation} " << this->name << ", grade " << this->grade << "\n";
+    if (this->grade < 1)
+        throw GradeTooHighException();
+    else if (this->grade > 150)
+        throw GradeTooLowException();
 }
 
 Bureaucrat::~Bureaucrat() {
-    std::cout << "{destruction}" << this->name << this->grade << "\n";
+    std::cout << "{destruction} " << this->name << ", grade " << this->grade << "\n";
 }
 
-Bureaucrat::Bureaucrat(std::string const &name, int const grade) : name(name), grade(grade) {
-    std::cout << "{creation}" << this->name << this->grade << "\n";
-}
-
-Bureaucrat::Bureaucrat(Bureaucrat const &ref) {
+Bureaucrat::Bureaucrat(Bureaucrat const &ref) : name(ref.getName()){
     *this = ref;
 }
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &ref) {
     if (this != &ref)
-    {
-        //this->name = ref.name;
         this->grade = ref.grade;
-    }
     return (*this);
 }
 
 // ***************** GETTERS ***************** //
 
-std::string const &Bureaucrat::getname() {
+std::string const &Bureaucrat::getName() const {
     return (this->name);
 }
-int Bureaucrat::getgrade() const {
+int Bureaucrat::getGrade() const {
     return (this->grade);
 }
 
-// ***************** SETTERS ***************** //
-
-// void Bureaucrat::setname(std::string const &name) {
-//     this->name = name;
-// }
-// void Bureaucrat::setgrade(int grade) {
-//     this->grade = grade;
-// }
-
 // ***************** FUNCTIONS ***************** //
 
-std::string const &Bureaucrat::introduce() const {
-    std::string intro = "{introduction} ";
-    intro += (this->name + "\n");
-    return (intro);
+void Bureaucrat::increaseGrade() {
+    this->grade--;
+    if (this->grade < 1)
+        throw GradeTooHighException();
+}
+void Bureaucrat::decreaseGrade() {
+    this->grade++;
+    if (this->grade > 150)
+        throw GradeTooLowException();
+}
+
+std::string const Bureaucrat::introduce() const {
+    std::ostringstream oss;
+    oss << this->name << ", bureaucrat grade ";
+    oss << this->grade << std::endl;
+    return (oss.str());
 }
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &in) {
