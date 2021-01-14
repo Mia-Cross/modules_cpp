@@ -1,13 +1,13 @@
 NAME = ex02
 
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 #-g -fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 SRCS = 	Bureaucrat.cpp \
 		Form.cpp \
 		PresidentialPardonForm.cpp \
+		ShrubberyCreationForm.cpp \
+		RobotomyRequestForm.cpp \
 		main.cpp
-		# ShrubberyCreationForm.cpp \
-		# RobotomyRequestForm.cpp \
 
 OBJDIR =	.obj
 OBJS =	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
@@ -36,6 +36,7 @@ clean :
 	@rm -rf $(OBJDIR)
 	@rm -f *.o
 	@rm -f *.out
+	@rm -f *_shrubbery
 
 fclean : clean
 	@rm -f $(NAME)

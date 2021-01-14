@@ -45,24 +45,28 @@ int  Form::getExecGrade() const {
 
 // ***************** FUNCTIONS ***************** //
 
-bool Form::beSigned(Bureaucrat const *bureaucrat) {
+bool Form::beSigned(Bureaucrat const &bureaucrat) {
     if (this->sign == true)
         return (false);
-    if (this->signGrade < bureaucrat->getGrade())
+    if (this->signGrade < bureaucrat.getGrade())
         throw GradeTooLowException();
     else
+    {
+        std::cout << bureaucrat.getName() << " signs " << this->name << "\n";
         this->sign = true;
+    }
     return (this->sign);
 }
 
-bool Form::execute(Bureaucrat const &executor) const {
-    if (this->sign == false)
+void Form::execute(Bureaucrat const &executor) const {
+    if (this->sign == false) 
         throw FormedNotSigned();
-    else if (this->execGrade >= executor.getGrade())
-        return (true);
-    else
+    else if (this->execGrade < executor.getGrade())
         throw GradeTooLowException();
-    return (false);
+    else {
+        std::cout << executor.getName() << " executes " << this->name << "\n";
+        return;
+    }
 }
 
 std::string const Form::introduce() const {
