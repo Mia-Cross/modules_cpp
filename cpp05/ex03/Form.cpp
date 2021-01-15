@@ -4,8 +4,8 @@ Form::Form() : name(""), sign(false), signGrade(0), execGrade(0) {}
 
 Form::Form(std::string const &name, int const signGrade, int const execGrade) :
     name(name), sign(false), signGrade(signGrade), execGrade(execGrade) {
-    std::cout << "{creation} " << this->name << ", requires grade " << this->signGrade;
-    std::cout << " to sign, grade " << this->execGrade << " to execute\n";
+    // std::cout << "{creation} " << this->name << ", requires grade " << this->signGrade;
+    // std::cout << " to sign, grade " << this->execGrade << " to execute\n";
     if (this->signGrade < 1)
         throw GradeTooHighException();
     else if (this->signGrade > 150)
@@ -13,8 +13,8 @@ Form::Form(std::string const &name, int const signGrade, int const execGrade) :
 }
 
 Form::~Form() {
-    std::cout << "{destruction} " << this->name << ", required grade " << this->signGrade;
-    std::cout << " to sign, grade " << this->execGrade << " to execute\n";
+    // std::cout << "{destruction} " << this->name << ", required grade " << this->signGrade;
+    // std::cout << " to sign, grade " << this->execGrade << " to execute\n";
 }
 
 Form::Form(Form const &ref) :
@@ -71,9 +71,9 @@ void Form::execute(Bureaucrat const &executor) const {
 
 std::string const Form::introduce() const {
     std::ostringstream oss;
-    oss << this->name << ", form requiring grade "<< this->signGrade;
-    oss << " to sign, grade " << this->execGrade << " to execute";
-    if (this->sign)
+    oss << getName() << ", form requiring grade "<< this->getSignGrade();
+    oss << " to sign, grade " << this->getExecGrade() << " to execute";
+    if (this->getSignedStatus())
         oss << " is signed" << std::endl;
     else
         oss << " is not signed yet" << std::endl;

@@ -25,3 +25,8 @@ void PresidentialPardonForm::execute(Bureaucrat const &bureaucrat) const {
     Form::execute(bureaucrat);
     std::cout << this->target << " has been pardonned by Zaphod Beeblebrox." << std::endl;
 }
+
+std::ostream &operator<<(std::ostream &out, PresidentialPardonForm const &in) {
+    out << in.introduce();
+    return (out);
+}

@@ -16,3 +16,5 @@ Cat *cat        = new Animal(); --> NOT OK !
 Animal *animal  = new Cat();    --> OK !
     > mais agira comme un Animal
     > sauf si virtual est specifié dans la méthode (dans le .h)
+
+(Form *(Intern::*)(const Intern * const, const std::string &, const std::string &)) 0x4cfdb0 <Intern::makeSCF(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const>

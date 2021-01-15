@@ -37,6 +37,7 @@ clean :
 	@rm -rf $(OBJDIR)
 	@rm -f *.o
 	@rm -f *.out
+	@rm -f *_shrubbery
 
 fclean : clean
 	@rm -f $(NAME)

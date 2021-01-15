@@ -16,13 +16,7 @@ class Intern
 
         Form *makeForm(std::string const &name, std::string const &target) const;
 
-        class ThatsIt : public std::exception {
-            public:
-				virtual const char *what() const throw() {
-					return (NULL);
-				}
-        };
-		class UnknownFormException : public std::exception {
+        class UnknownFormException : public std::exception {
         	public:
 				virtual const char *what() const throw() {
 					return ("Intern does know how to write this form, let's fire him!\n");
@@ -36,11 +30,15 @@ class Intern
         };
 
     private :
+
         Form *makePPF(std::string const &name, std::string const &target) const ;
         Form *makeRRF(std::string const &name, std::string const &target) const ;
         Form *makeSCF(std::string const &name, std::string const &target) const ;
         Form *endOfTab(std::string const &name, std::string const &target) const ;
-     //   void initTab();
+
+		typedef Form *(Intern::*formCreationFctPtr)(std::string const &, std::string const &) const ;
+		formCreationFctPtr createTab[4];
+		void initTab();
 };
 
 #endif

@@ -4,14 +4,16 @@
 #include "RobotomyRequestForm.hpp"
 
 Intern::Intern() {
-    std::cout << "A random intern says hi, but nobody seems to respond\n";
+    std::cout << "{creation} A random intern says hi, but nobody seems to respond\n";
     srand(time(NULL));
+    this->initTab();
 }
 Intern::~Intern() {
-    std::cout << "A random intern was fired, everyone already forgot his name\n";
+    std::cout << "{destruction} A random intern was fired, everyone already forgot his name\n";
 }
 Intern::Intern(Intern const &ref) {
     srand(time(NULL));
+    this->initTab();
     (void)ref;
 }
 Intern &Intern::operator=(Intern const &ref) {
@@ -21,77 +23,50 @@ Intern &Intern::operator=(Intern const &ref) {
 
 Form *Intern::makeForm(std::string const &name, std::string const &target) const
 {
-    Form *(Intern::*create[4])(std::string const &, std::string const &) const
-    = { &Intern::makePPF, &Intern::makeRRF, &Intern::makeSCF };
-    Form *to_write;
-    int i = 0;
+    Form *to_write = NULL;
 
-    while (i < 4)
+    for (int i = 0; i < 4 ; i++)
     {
         try {
-            to_write = (this->*create[i])(name, target); }
-        catch (ThatsIt) {
-            break; }
+            to_write = (this->*createTab[i])(name, target);
+            break;
+        }
         catch (UnknownFormException &e) {
             std::cout << e.what();
-            return NULL; }
-        catch (TryAgain) {
-            i++; }
+        }
+        catch (TryAgain) {}
     }
-    std::cout << "Intern creates " << to_write->getName() << "\n";
+    if (to_write)
+        std::cout << "Intern creates " << to_write->getName() << std::endl;
     return (to_write);
-    // try
-    // {
-    //     try {
-    //         to_write = new ShrubberyCreationForm(name, target);
-    //     }
-    //     catch (TryAgain)
-    //     {
-    //         std::cout << "It's not a SCF\t";
-    //         try {
-    //             to_write = new RobotomyRequestForm(target);
-    //         }
-    //         catch (TryAgain)
-    //         {
-    //             std::cout << "It's not a RRF\t";
-    //             try {
-    //                 to_write = new PresidentialPardonForm(target);
-    //             }
-    //             catch (TryAgain)
-    //             {
-    //                 std::cout << "It's not a PPF\t";
-    //                 throw UnknownFormException();
-    //             }
-    //         }
-    //     }
-    // }
-    // catch (UnknownFormException &e) {
-    //     std::cout << "Failed to make form because : " << e.what() << "\n";
-    //     return (NULL);
-    // }
-
 }
 
 Form *Intern::makePPF(std::string const &name, std::string const &target) const  {
     Form *ppf = new PresidentialPardonForm(target);
     if (ppf->getName().compare(name))
+    {
+        delete ppf;
         throw TryAgain();
+    }
     return(ppf);
-  //  return(new PresidentialPardonForm(name, target));
 }
 Form *Intern::makeSCF(std::string const &name, std::string const &target) const  {
-    Form *scf = new PresidentialPardonForm(target);
+    Form *scf = new ShrubberyCreationForm(target);
     if (scf->getName().compare(name))
+    {
+        delete scf;
         throw TryAgain();
+    }
     return(scf);
-   // return(new ShrubberyCreationForm(name, target));
 }
 Form *Intern::makeRRF(std::string const &name, std::string const &target) const  {
-    Form *rrf = new PresidentialPardonForm(target);
+    Form *rrf = new RobotomyRequestForm(target);
     if (rrf->getName().compare(name))
+    {
+        delete rrf;
         throw TryAgain();
+    }
     return(rrf);
-   // return(new RobotomyRequestForm(name, target));
 }
 Form *Intern::endOfTab(std::string const &name, std::string const &target) const {
     (void)name;
@@ -100,9 +75,9 @@ Form *Intern::endOfTab(std::string const &name, std::string const &target) const
     return (NULL);
 }
 
-// void Intern::initTab() {
-//     this->create[0] = &makePPF;
-//     this->create[1] = &makeRRF;
-//     this->create[2] = &makeSCF;
-//     this->create[3] = &endOfTab;
-// }
+void Intern::initTab() {
+    this->createTab[0] = &Intern::makePPF;
+    this->createTab[1] = &Intern::makeRRF;
+    this->createTab[2] = &Intern::makeSCF;
+    this->createTab[3] = &Intern::endOfTab;
+}

@@ -10,11 +10,10 @@ int main ()
     Intern intern;
     std::cout << std::endl;
 
-    Form *scf = intern.makeForm("S.C.F.", "Slatibarfast");
-    Form *rrf = intern.makeForm("R.R.F.", "Marvin the Paranoid");
     Form *ppf = intern.makeForm("P.P.F.", "Arthur Dent");
+    Form *rrf = intern.makeForm("R.R.F.", "Marvin the Paranoid");
+    Form *scf = intern.makeForm("S.C.F.", "Slatibarfast");
     Form *error = intern.makeForm("unknown type", "");
-    //error->beSigned(best);
     std::cout << std::endl;
 
     std::cout << best << worst << *ppf << *rrf << *scf << std::endl;
