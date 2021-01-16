@@ -2,7 +2,8 @@ NAME = convert
 
 CXX = clang++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
-SRCS = 	main.cpp
+SRCS = 	Convert.cpp \
+		main.cpp 
 
 OBJDIR =	.obj
 OBJS =	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
