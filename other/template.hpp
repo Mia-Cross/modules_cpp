@@ -2,6 +2,7 @@
 # define CLASS_NAME_H
 
 # include <iostream>
+# include <sstream>
 
 class X_CLASS
 {
@@ -24,7 +25,7 @@ class X_CLASS
 
         virtual void method() const = 0;
         virtual void virtualFunction();
-        void introduce() const;
+        std::string const introduce() const;
 };
 
 std::ostream &operator<<(std::ostream &out, X_CLASS const &in);

@@ -46,8 +46,10 @@ void X_CLASS::setX_INT(int X_INT) {
 
 // ***************** FUNCTIONS ***************** //
 
-void X_CLASS::introduce() const {
-    std::cout << "{introduction}" << this->X_STR << this->X_INT << "\n";
+std::string const X_CLASS::introduce() const {
+    std::ostringstream oss;
+    oss << "{introduction}" << this->X_STR << this->X_INT << "\n";
+    return (oss.str());
 }
 
 std::ostream &operator<<(std::ostream &out, X_CLASS const &in) {
