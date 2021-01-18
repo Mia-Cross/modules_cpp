@@ -1,8 +1,8 @@
-NAME = serialize
+NAME = identify
 
 CXX = clang++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 #-g -fsanitize=address
-SRCS = 	Data.cpp \
+SRCS = 	identify.cpp \
 		main.cpp 
 
 OBJDIR =	.obj

@@ -1,0 +1,17 @@
+Is the program running as intended, and did the student use the
+static_cast to convert values? We'll accept the use of implicit casts for
+promotion casts only.
+
+Anyway, please don't be too uncompromising
+towards the exercice's outputs if the spirit of the exercice is respected.
+Failing this exercice does not prevent from grading the next ones. I know this exercice
+can be cryptic to some students.
+
+Is the program running as intended, and did the student use the
+reinterpret_cast to retype the raw data?
+Remember that the raw data pointed to by the void * must be 52 bytes (24+4+24) contiguous on the heap.
+
+Is the program running as intended, and did the student use the
+dynamic_casts to identify the real type?
+(In case you're wondering, the header <typeinfo> must not appear anywhere.)
+
