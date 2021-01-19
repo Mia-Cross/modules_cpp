@@ -6,7 +6,7 @@
 /*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 04:10:24 by lemarabe          #+#    #+#             */
-/*   Updated: 2021/01/18 04:10:25 by lemarabe         ###   ########.fr       */
+/*   Updated: 2021/01/20 00:00:42 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,31 @@
 
 void *serialize()
 {
-    static const char *pool = "abcdefghijklmnopqrstuvwxyz0123456789";
-    int *serie = new int[17];
+    static const char   *pool = "abcdefghijklmnopqrstuvwxyz0123456789";
+    char                *serie = new char[20];
+    int                 *iPtr = reinterpret_cast<int *>(serie + 8);
 
     for (int i = 0; i < 8; i++)
         serie[i] = pool[rand() % 36];
-    serie[8] = rand();
-    for (int i = 9; i < 17; i++)
+    *iPtr = rand();
+    for (int i = 12; i < 20; i++)
         serie[i] = pool[rand() % 36];
-    return ((void *)serie);
+    return (static_cast<void *>(serie));
 }
 
 Data *deserialize(void *zone)
 {
-    Data *data = new Data;
-    char buf[9] = "";
-    char *c_ptr;
-    int *ptr = reinterpret_cast<int *>(zone);
+    Data    *data = new Data;
+    char    buf[9] = "";
+    char    *c_ptr = static_cast<char *>(zone);
+    int     *i_ptr = reinterpret_cast<int *>(zone);
 
     for (int i = 0; i < 8; i++)
-    {
-        c_ptr = reinterpret_cast<char *>(ptr++);
-        buf[i] = *c_ptr;
-    }
+        buf[i] = c_ptr[i];
     data->setStr1(buf);
-    data->setInt(*ptr++);
-    for (int i = 9; i < 17; i++)
-    {
-        c_ptr = reinterpret_cast<char *>(ptr++);
-        buf[i - 9] = *c_ptr;
-    }
+    data->setInt(*i_ptr);
+    for (int i = 12; i < 20; i++)
+        buf[i - 12] = c_ptr[i];
     data->setStr2(buf);
     return (data);
 }
