@@ -6,7 +6,7 @@
 /*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 22:26:18 by lemarabe          #+#    #+#             */
-/*   Updated: 2021/01/18 17:54:39 by lemarabe         ###   ########.fr       */
+/*   Updated: 2021/01/19 01:03:03 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,9 @@ int main(int ac, char **av)
             std::cerr << "I can only convert 1 value at a time\n";
             return (1);
     }
-    Convert convert;
-    try {
-        Convert test(av[1]);
-        convert = test;
-        convert.displayChar();
-        convert.displayInt();
-        convert.displayFloat();
-        convert.displayDouble();
-    }
-    catch (Convert::NonNumericValueToConvert) {
-        convert.setValueAsChar(av[1][0]);
-        convert.setValueAsInt(av[1][0]);
-        convert.setValueAsFloat(av[1][0]);
-        convert.setValueAsDouble(av[1][0]);
-    }
-    catch (Convert::NotANumberException) {
-        convert.displayValuesForNAN();
-    }
-    catch (Convert::InfiniteException &e) {
-        convert.displayValuesForInf(e.infSign(convert));
-    }
+    Convert convert(av[1]);
+    convert.displayChar();
+    convert.displayInt();
+    convert.displayFloat();
+    convert.displayDouble();
 }

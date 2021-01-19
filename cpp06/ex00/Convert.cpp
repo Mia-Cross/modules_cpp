@@ -6,7 +6,7 @@
 /*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 22:26:11 by lemarabe          #+#    #+#             */
-/*   Updated: 2021/01/18 18:02:43 by lemarabe         ###   ########.fr       */
+/*   Updated: 2021/01/19 02:54:48 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,147 +15,105 @@
 Convert::Convert() {}
 Convert::~Convert() {}
 Convert::Convert(Convert const &ref) {*this = ref; }
-Convert &Convert::operator=(Convert const &ref) {
-    if (this != &ref)
-    {
-        this->valueAsCStr = ref.valueAsCStr;
-        this->valueAsString = ref.valueAsString;
-    }
-    return (*this);
-}
-Convert::Convert(const char *value) : valueAsCStr(value), valueAsString(value) {
+Convert &Convert::operator=(Convert const &ref) { (void)ref; return (*this); }
+
+// ***************** PARSE INPUT ***************** //
+
+Convert::Convert(const char *value) : valueAsCStr(value), valueAsString(value),
+    d(0.0), inf(false), sign(true), nan(false)
+{
     if (!this->valueAsString.compare(0, 3, "nan"))
-        throw NotANumberException();
-    if (!this->valueAsString.compare(0, 3, "inf") || !this->valueAsString.compare(1, 3, "inf"))
-        throw InfiniteException();
-    if (isalpha(*this->valueAsCStr))
+        this->nan = true;
+    else if (!this->valueAsString.compare(0, 3, "inf")
+        || !this->valueAsString.compare(1, 3, "inf"))
+    {
+        this->inf = true;
+        if (this->valueAsString[0] == '-')
+            this->sign = false;
+    }
+    else if (!isdigit(*this->valueAsCStr) && this->valueAsString[0] != '-')
     {
         if (this->valueAsString.size() > 1)
             std::cout << "Will only convert the first character\n";
-        throw NonNumericValueToConvert();
+        d = static_cast<double>(this->valueAsCStr[0]);
     }
+    if (d == 0.0)
+        d = atof(this->valueAsCStr);
 }
 
-// ***************** GETTERS ***************** //
+// ***************** CHECK VALUES ***************** //
 
-std::string const &Convert::getValueAsString() const {
-    return (this->valueAsString);
-}
-
-void Convert::setValueAsChar()
+void Convert::testCharValue() const
 {
-    int i = atoi(this->valueAsCStr);
-
-    if (i > std::numeric_limits<unsigned char>::max() ||
-        i < std::numeric_limits<unsigned char>::min())
+    if (nan || inf || this->d > 255.0 || this->d < 0.0)
         throw ImpossibleConversion();
-    else if (i > 126 || i < 32)
+    if (this->d > 126.0 || this->d < 32.0)
         throw NonDisplayableChar();
-    this->c = static_cast<char>(i);
 }
 
-void Convert::setValueAsInt() 
+void Convert::testIntValue() const
 {
-    long l = atol(this->valueAsCStr);
-
-    if (l > std::numeric_limits<int>::max() || l < std::numeric_limits<int>::min())
+    if (nan || inf || this->d > 2147483647.0 || this->d < -2147483647.0)
         throw ImpossibleConversion();
-    this->i = atoi(this->valueAsCStr);
 }
 
-void Convert::setValueAsFloat() {
-
-    double d = atof(this->valueAsCStr);
-
-    if (d > std::numeric_limits<float>::max() || d < std::numeric_limits<float>::min())
+void Convert::testFloatValue() const
+{
+    if (inf)
+        throw InfiniteException();
+    if (this->d > std::numeric_limits<float>::max()
+        || this->d < -1 * std::numeric_limits<float>::max())
         throw ImpossibleConversion();
-    this->f = static_cast<float>(d);
-}
-
-void Convert::setValueAsDouble() {
-    this->d = atof(this->valueAsCStr);
-}
-
-// ************** HANDLE CONVERSION FROM CHAR ************** //
-
-void Convert::setValueAsChar(char c) {
-    this->c = c;
-}
-void Convert::setValueAsInt(char c) {
-    this->i = atoi(&c);
-}
-void Convert::setValueAsFloat(char c) {
-    double d = atof(&c);
-    this->f = static_cast<float>(d);
-}
-void Convert::setValueAsDouble(char c) {
-    this->d = atof(&c);
-}
-
-// ************** HANDLE LITTERALS ************** //
-
-void Convert::displayValuesForNAN() {
-    //std::cout << "char: ";
-}
-
-void Convert::displayValuesForInf(char c) {
-    (void)c;
 }
 
 // ***************** DISPLAY ***************** //
 
-void Convert::displayChar() {
+void Convert::displayChar() const
+{
+    std::cout << "char: ";
     try {
-        std::cout << "char: ";
-        this->setValueAsChar();
-        std::cout << c << std::endl;
-    }
-    catch (std::exception &e) {
-        std::cout << e.what();
-    }
-}
-void Convert::displayInt() {
-    try {
-        std::cout << "int: ";
-        this->setValueAsInt();
-        std::cout << i << std::endl;
-    }
-    catch (std::exception &e) {
-        std::cout << e.what();
-    }
-}
-void Convert::displayFloat() {
-    try {
-        std::cout << "float: ";
-        this->setValueAsFloat();
-        //std::cout << std::setw(2) << f << std::endl;
-        printf("%.1ff\n", f);
-    }
-    catch (std::exception &e) {
-        std::cout << e.what();
-    }
-}
-void Convert::displayDouble() {
-    try {
-        std::cout << "double: ";
-        this->setValueAsDouble();
-        printf("%.1f\n", d);
-       // std::cout << d << std::endl;
+        this->testCharValue();
+        std::cout << static_cast<char>(this->d) << std::endl;
     }
     catch (std::exception &e) {
         std::cout << e.what();
     }
 }
 
-// ***************** FUNCTIONS ***************** //
-
-std::string const Convert::introduce() const {
-    std::ostringstream oss;
-    oss << "{introduction}" << this->valueAsString << "\n";
-    return (oss.str());
+void Convert::displayInt() const
+{
+    std::cout << "int: ";
+    try {
+        this->testIntValue();
+        std::cout << static_cast<int>(this->d) << std::endl;
+    }
+    catch (std::exception &e) {
+        std::cout << e.what();
+    }
 }
 
-std::ostream &operator<<(std::ostream &out, Convert const &in) {
-    out << in.introduce();
-    return (out);
+void Convert::displayFloat() const
+{
+    std::cout << "float: ";
+    try {
+        this->testFloatValue();
+        std::cout << std::fixed << std::setprecision(1)
+        << static_cast<float>(this->d) << "f\n";
+    }
+    catch (std::exception &e) {
+        if (InfiniteException *inf = dynamic_cast<InfiniteException *>(&e))
+        {
+            if (this->sign == false)
+                std::cout << "-";
+            std::cout << inf->what() << "f\n";
+        }
+        else
+            std::cout << e.what();
+    }
+}
+
+void Convert::displayDouble() const
+{
+    std::cout << "double: ";
+    std::cout << std::fixed << std::setprecision(1) << this->d << "\n";
 }
