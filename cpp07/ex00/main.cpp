@@ -6,21 +6,30 @@
 /*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 04:03:34 by lemarabe          #+#    #+#             */
-/*   Updated: 2021/01/19 04:51:26 by lemarabe         ###   ########.fr       */
+/*   Updated: 2021/01/19 07:06:49 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "whatever.hpp"
 
+// class A {};
+
+// int getInt() const { return this->i;};
+
+// std::ostream &operator<<(std::ostream &out, A const &in) {
+//     out << in.getInt();
+//     return (out);
+// }
+
 int main()
 {
     int i1(-999), i2(777);
     float f1(42.0), f2(42.1), f3(42.0);
     char c1('2'), c2('<');
-    std::string str = "chaine 1";
+    std::string str = "hello";
     const char *s1 = str.c_str();
-    std::string str2 = "chaine 2";
+    std::string str2 = "hello!";
     const char *s2 = str2.c_str();
 
     std::cout << "MAX BETWEEN INTS : " << ::max(i1, i2) << std::endl;
@@ -53,6 +62,7 @@ int main()
     std::cout << "-> before :\tS1 = " << s1 << ", S2 = " << s2 << "\n";
     ::swap(s1, s2);
     std::cout << "-> after :\tS1 = " << s1 << ", S2 = " << s2 << "\n";
+    std::cout << std::endl;
 
     int a = 2;
     int b = 3;
@@ -67,4 +77,13 @@ int main()
     std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
     std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
     return 0;
+    
+    //A a1(94), a2(96);
+    // std::cout << std::endl;
+    //std::cout << "MAX BETWEEN CLASSES : " << ::max(a1, a2) << std::endl;
+    //std::cout << "MIN BETWEEN CLASSES : " << ::min(a1, a2) << std::endl;
+    // std::cout << "SWAP BETWEEN CLASSES : " << std::endl;
+    // std::cout << "-> before :\tA1 = " << a1 << ", A2 = " << a2 << "\n";
+    // ::swap(a1, a2);
+    // std::cout << "-> after :\tA1 = " << a1 << ", A2 = " << a2 << "\n";
 }

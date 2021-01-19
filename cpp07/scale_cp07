@@ -1,0 +1,290 @@
+Refer to the subject for the expected output with simple types, such
+as int.
+
+Do the functions also work with complex types such as:
+class
+  Awesome {
+    public:
+      Awesome( int n ) : _n( n ) {}
+      bool operator==( Awesome const & rhs ) const { return (this->_n == rhs._n); }
+      bool operator!=( Awesome const & rhs ) const{ return (this->_n != rhs._n); }
+      bool operator>( Awesome const & rhs ) const { return (this->_n > rhs._n); }
+      bool operator<( Awesome const & rhs ) const { return (this->_n < rhs._n); }
+      bool operator>=( Awesome const & rhs ) const { return (this->_n >= rhs._n); }
+      bool operator<=( Awesome const & rhs ) const { return (this->_n <= rhs._n); }
+  private:
+      int _n;
+  };
+  ?
+
+Test the following code with the student's iter:
+class Awesome
+  {
+    public:
+      Awesome( void ) : _n( 42 ) { return; }
+      int get( void ) const { return this->_n; }
+    private:
+      int _n;
+  };
+  std::ostream & operator<<( std::ostream & o, Awesome const & rhs ) { o << rhs.get(); return o; }
+  template< typename T >
+  void print( T const & x ) { std::cout << x << std::endl; return; }
+  int main() {
+    int tab[] = { 0, 1, 2, 3, 4 };  // <--- I never understood why you can't write int[] tab. Wouldn't that make more sense?
+    Awesome tab2[5];
+  
+    iter( tab, 5, print<int> );
+    iter( tab2, 5, print<Awesome> );
+  
+    return 0;
+  }
+  If everything went well, it should display:
+
+  0
+  1
+  2
+  3
+  4
+  42
+  42
+  42
+  42
+  42
+
+Is it possible to create an empty array and an array of a specific size?
+Elements must be accessible for reading and writing through the operator[]
+(or just for reading if the instance is const). Access to an element out of
+the limits must throw an std::exception.
+
+Refer to the subject for the expected output with simple types, such
+as int.
+
+Do the functions also work with complex types such as:
+class
+  Awesome {
+    public:
+      Awesome( int n ) : _n( n ) {}
+      bool operator==( Awesome const & rhs ) const { return (this->_n == rhs._n); }
+      bool operator!=( Awesome const & rhs ) const{ return (this->_n != rhs._n); }
+      bool operator>( Awesome const & rhs ) const { return (this->_n > rhs._n); }
+      bool operator<( Awesome const & rhs ) const { return (this->_n < rhs._n); }
+      bool operator>=( Awesome const & rhs ) const { return (this->_n >= rhs._n); }
+      bool operator<=( Awesome const & rhs ) const { return (this->_n <= rhs._n); }
+  private:
+      int _n;
+  };
+  ?
+
+Test the following code with the student's iter:
+class Awesome
+  {
+    public:
+      Awesome( void ) : _n( 42 ) { return; }
+      int get( void ) const { return this->_n; }
+    private:
+      int _n;
+  };
+  std::ostream & operator<<( std::ostream & o, Awesome const & rhs ) { o << rhs.get(); return o; }
+  template< typename T >
+  void print( T const & x ) { std::cout << x << std::endl; return; }
+  int main() {
+    int tab[] = { 0, 1, 2, 3, 4 };  // <--- I never understood why you can't write int[] tab. Wouldn't that make more sense?
+    Awesome tab2[5];
+  
+    iter( tab, 5, print<int> );
+    iter( tab2, 5, print<Awesome> );
+  
+    return 0;
+  }
+  If everything went well, it should display:
+
+  0
+  1
+  2
+  3
+  4
+  42
+  42
+  42
+  42
+  42
+
+Is it possible to create an empty array and an array of a specific size?
+Elements must be accessible for reading and writing through the operator[]
+(or just for reading if the instance is const). Access to an element out of
+the limits must throw an std::exception.
+
+Refer to the subject for the expected output with simple types, such
+as int.
+
+Do the functions also work with complex types such as:
+class
+  Awesome {
+    public:
+      Awesome( int n ) : _n( n ) {}
+      bool operator==( Awesome const & rhs ) const { return (this->_n == rhs._n); }
+      bool operator!=( Awesome const & rhs ) const{ return (this->_n != rhs._n); }
+      bool operator>( Awesome const & rhs ) const { return (this->_n > rhs._n); }
+      bool operator<( Awesome const & rhs ) const { return (this->_n < rhs._n); }
+      bool operator>=( Awesome const & rhs ) const { return (this->_n >= rhs._n); }
+      bool operator<=( Awesome const & rhs ) const { return (this->_n <= rhs._n); }
+  private:
+      int _n;
+  };
+  ?
+
+Test the following code with the student's iter:
+class Awesome
+  {
+    public:
+      Awesome( void ) : _n( 42 ) { return; }
+      int get( void ) const { return this->_n; }
+    private:
+      int _n;
+  };
+  std::ostream & operator<<( std::ostream & o, Awesome const & rhs ) { o << rhs.get(); return o; }
+  template< typename T >
+  void print( T const & x ) { std::cout << x << std::endl; return; }
+  int main() {
+    int tab[] = { 0, 1, 2, 3, 4 };  // <--- I never understood why you can't write int[] tab. Wouldn't that make more sense?
+    Awesome tab2[5];
+  
+    iter( tab, 5, print<int> );
+    iter( tab2, 5, print<Awesome> );
+  
+    return 0;
+  }
+  If everything went well, it should display:
+
+  0
+  1
+  2
+  3
+  4
+  42
+  42
+  42
+  42
+  42
+
+Is it possible to create an empty array and an array of a specific size?
+Elements must be accessible for reading and writing through the operator[]
+(or just for reading if the instance is const). Access to an element out of
+the limits must throw an std::exception.
+
+Refer to the subject for the expected output with simple types, such
+as int.
+
+Do the functions also work with complex types such as:
+class
+  Awesome {
+    public:
+      Awesome( int n ) : _n( n ) {}
+      bool operator==( Awesome const & rhs ) const { return (this->_n == rhs._n); }
+      bool operator!=( Awesome const & rhs ) const{ return (this->_n != rhs._n); }
+      bool operator>( Awesome const & rhs ) const { return (this->_n > rhs._n); }
+      bool operator<( Awesome const & rhs ) const { return (this->_n < rhs._n); }
+      bool operator>=( Awesome const & rhs ) const { return (this->_n >= rhs._n); }
+      bool operator<=( Awesome const & rhs ) const { return (this->_n <= rhs._n); }
+  private:
+      int _n;
+  };
+  ?
+
+Test the following code with the student's iter:
+class Awesome
+  {
+    public:
+      Awesome( void ) : _n( 42 ) { return; }
+      int get( void ) const { return this->_n; }
+    private:
+      int _n;
+  };
+  std::ostream & operator<<( std::ostream & o, Awesome const & rhs ) { o << rhs.get(); return o; }
+  template< typename T >
+  void print( T const & x ) { std::cout << x << std::endl; return; }
+  int main() {
+    int tab[] = { 0, 1, 2, 3, 4 };  // <--- I never understood why you can't write int[] tab. Wouldn't that make more sense?
+    Awesome tab2[5];
+  
+    iter( tab, 5, print<int> );
+    iter( tab2, 5, print<Awesome> );
+  
+    return 0;
+  }
+  If everything went well, it should display:
+
+  0
+  1
+  2
+  3
+  4
+  42
+  42
+  42
+  42
+  42
+
+Is it possible to create an empty array and an array of a specific size?
+Elements must be accessible for reading and writing through the operator[]
+(or just for reading if the instance is const). Access to an element out of
+the limits must throw an std::exception.
+
+Refer to the subject for the expected output with simple types, such
+as int.
+
+Do the functions also work with complex types such as:
+class
+  Awesome {
+    public:
+      Awesome( int n ) : _n( n ) {}
+      bool operator==( Awesome const & rhs ) const { return (this->_n == rhs._n); }
+      bool operator!=( Awesome const & rhs ) const{ return (this->_n != rhs._n); }
+      bool operator>( Awesome const & rhs ) const { return (this->_n > rhs._n); }
+      bool operator<( Awesome const & rhs ) const { return (this->_n < rhs._n); }
+      bool operator>=( Awesome const & rhs ) const { return (this->_n >= rhs._n); }
+      bool operator<=( Awesome const & rhs ) const { return (this->_n <= rhs._n); }
+  private:
+      int _n;
+  };
+  ?
+
+Test the following code with the student's iter:
+class Awesome
+  {
+    public:
+      Awesome( void ) : _n( 42 ) { return; }
+      int get( void ) const { return this->_n; }
+    private:
+      int _n;
+  };
+  std::ostream & operator<<( std::ostream & o, Awesome const & rhs ) { o << rhs.get(); return o; }
+  template< typename T >
+  void print( T const & x ) { std::cout << x << std::endl; return; }
+  int main() {
+    int tab[] = { 0, 1, 2, 3, 4 };  // <--- I never understood why you can't write int[] tab. Wouldn't that make more sense?
+    Awesome tab2[5];
+  
+    iter( tab, 5, print<int> );
+    iter( tab2, 5, print<Awesome> );
+  
+    return 0;
+  }
+  If everything went well, it should display:
+
+  0
+  1
+  2
+  3
+  4
+  42
+  42
+  42
+  42
+  42
+
+Is it possible to create an empty array and an array of a specific size?
+Elements must be accessible for reading and writing through the operator[]
+(or just for reading if the instance is const). Access to an element out of
+the limits must throw an std::exception.
+
