@@ -11,5 +11,7 @@ ______________________________________________
 - Module 05 :
 ______________________________________________
 ex00 = static_cast
+events =
+    Non displayable (char), -inf(f), +inf(f), nan(f)
 ex01 = reinterpret_cast
 ex02 = dynamic_cast

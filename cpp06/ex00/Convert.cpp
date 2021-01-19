@@ -6,7 +6,7 @@
 /*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 22:26:11 by lemarabe          #+#    #+#             */
-/*   Updated: 2021/01/19 02:54:48 by lemarabe         ###   ########.fr       */
+/*   Updated: 2021/01/19 03:16:47 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Convert::Convert(const char *value) : valueAsCStr(value), valueAsString(value),
         if (this->valueAsString[0] == '-')
             this->sign = false;
     }
-    else if (!isdigit(*this->valueAsCStr) && this->valueAsString[0] != '-')
+    else if (!isdigit(*this->valueAsCStr) && !(this->valueAsString[0] == '-' && isdigit(this->valueAsString[1])))
     {
         if (this->valueAsString.size() > 1)
             std::cout << "Will only convert the first character\n";
