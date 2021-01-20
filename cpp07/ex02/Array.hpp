@@ -6,7 +6,7 @@
 /*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 00:09:16 by lemarabe          #+#    #+#             */
-/*   Updated: 2021/01/20 04:04:53 by lemarabe         ###   ########.fr       */
+/*   Updated: 2021/01/20 21:29:26 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class Array
 
         unsigned int    nbElem;
         T               *array;
+        T const *constArr;
 
     public:
 
@@ -46,7 +47,13 @@ class Array
             return (*this);
         };
 
-        T &operator[](int i) const {
+        T const &operator[](int i) const {
+            if (i < 0 || i >= static_cast<int>(this->nbElem))
+                throw OutOfBounds();
+            return (this->array[i]);
+        };
+
+        T &operator[](int i) {
             if (i < 0 || i >= static_cast<int>(this->nbElem))
                 throw OutOfBounds();
             return (this->array[i]);
@@ -77,6 +84,11 @@ class Array
 
 template < typename T >
 std::ostream &operator<<(std::ostream &o, Array<T> &array) {
+    o << &array;
+    return (o);
+}
+template < typename T >
+std::ostream &operator<<(std::ostream &o, Array<T> const &array) {
     o << &array;
     return (o);
 }
