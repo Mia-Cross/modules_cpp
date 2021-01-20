@@ -6,7 +6,7 @@
 /*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 04:10:24 by lemarabe          #+#    #+#             */
-/*   Updated: 2021/01/20 00:00:42 by lemarabe         ###   ########.fr       */
+/*   Updated: 2021/01/20 00:05:50 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,15 @@ int main()
     srand(time(NULL));
 
     std::cout << "Initializing a random sequence...\n";
-    void *ptr = serialize();
+    void *zone = serialize();
 
     std::cout << "Reading sequence in Data structure :\n";
-    Data *data = deserialize(ptr);
+    Data *data = deserialize(zone);
     std::cout << "Str1 =\t|" << data->getStr1() << "|\n";
     std::cout << "Int =\t|" << data->getInt() << "|\n";
     std::cout << "Str2 =\t|" << data->getStr2() << "|\n";
 
     delete data;
-    int *i_ptr = reinterpret_cast<int*>(ptr);
+    int *i_ptr = reinterpret_cast<int*>(zone);
     delete [] i_ptr;
 }
