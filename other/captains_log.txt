@@ -8,10 +8,22 @@ Animal *animal  = new Cat();    --> OK !
     > mais agira comme un Animal
     > sauf si virtual est specifié dans la méthode (dans le .h)
 ______________________________________________
-- Module 05 :
+- Module 07 :
 ______________________________________________
 ex00 = static_cast
-events =
-    Non displayable (char), -inf(f), +inf(f), nan(f)
 ex01 = reinterpret_cast
 ex02 = dynamic_cast
+______________________________________________
+- Module 08 :
+______________________________________________
+Quand une methode est const ( ... method(...) const {} )
+le pointeur *this est const, donc toutes les variables au sein de la classe :
+int     -> int const
+int*    -> int* const
+int&    -> int& const
+
+/!\ Ne pas confondre : 
+int * const = un pointeur constant vers un int.
+int const * = un pointeur vers un int constant.
+int & const = une reference constante sur un int.
+int const & = une reference sur un int constant.

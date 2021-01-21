@@ -6,7 +6,7 @@
 /*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 00:31:26 by lemarabe          #+#    #+#             */
-/*   Updated: 2021/01/20 21:32:24 by lemarabe         ###   ########.fr       */
+/*   Updated: 2021/01/21 05:03:34 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int main()
 {
-    Array<char> emptyArray;
+    ::Array<char> emptyArray;
     std::cout << "CREATION D'UN ARRAY VIDE\tAdresse {" << emptyArray << "}\n";
     std::cout << "Contenu :\t";
     emptyArray.displayContent();
 
-    Array<int> intArray(5); 
+    ::Array<int> intArray(5); 
     std::cout << "\nCREATION D'UN ARRAY D'INTS\tAdresse {" << intArray << "}\n";
     intArray[0] = 1;
     intArray[1] = 11;
@@ -31,7 +31,7 @@ int main()
     std::cout << "Contenu :\t";
     intArray.displayContent();
 
-    Array<char> charArray(5);
+    ::Array<char> charArray(5);
     std::cout << "\nCREATION D'UN ARRAY DE CHAR\tAdresse {" << charArray << "}\n";
     charArray[0] = 'H';
     charArray[1] = 'e';
@@ -41,7 +41,7 @@ int main()
     std::cout << "Contenu :\t";
     charArray.displayContent();
 
-    Array<char> copyArray(charArray);
+    ::Array<char> copyArray(charArray);
     std::cout << "\nCOPIE DE L'ARRAY\t\tAdresse {" << copyArray << "}\n";
     emptyArray = charArray;
     std::cout << "ASSIGNATION SUR L'ARRAY VIDE\tAdresse {" << emptyArray << "}\n";
@@ -54,21 +54,22 @@ int main()
     std::cout << "Contenu de l'assigné :\t";
     emptyArray.displayContent();
 
-    Array<float> floatArray(3);
+    ::Array<float> floatArray(3);
     std::cout << "\nCREATION D'UN ARRAY DE FLOATS\tAdresse {" << floatArray << "}\n";
     floatArray[0] = 99.97;
     floatArray[1] = 47.902;
     floatArray[2] = 45090.3;
     std::cout << "Contenu :\t";
     floatArray.displayContent();
-    const Array<float> constArray(floatArray);
+
+    const ::Array<float> constArray(floatArray);
     std::cout << "\nCREATION D'UN ARRAY CONST\tAdresse {" << constArray << "}\n";
     //constArray[0] = 0.1;
     std::cout << "Reading from index 0 : " << constArray[0] << std::endl;
     std::cout << "Contenu :\t";
     constArray.displayContent();
 
-    Array<std::string> strArray(3);
+    ::Array<std::string> strArray(3);
     std::cout << "\nCREATION D'UN ARRAY DE STRING\tAdresse {" << strArray << "}\n";
     strArray[0] = "this is my first string";
     strArray[1] = "this is my second string";
