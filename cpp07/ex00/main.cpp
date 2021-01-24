@@ -6,7 +6,7 @@
 /*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 04:03:34 by lemarabe          #+#    #+#             */
-/*   Updated: 2021/01/19 07:06:49 by lemarabe         ###   ########.fr       */
+/*   Updated: 2021/01/24 19:04:14 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,16 @@ int main()
 {
     int i1(-999), i2(777);
     float f1(42.0), f2(42.1), f3(42.0);
-    char c1('2'), c2('<');
+    char c1('a'), c2('b');
     std::string str = "hello";
     const char *s1 = str.c_str();
     std::string str2 = "hello!";
     const char *s2 = str2.c_str();
+    std::cout << "2 INT :\t\t" << i1 << " / " << i2 << std::endl;
+    std::cout << "2 FLOAT :\t" << f1 << " / " << f2 << std::endl;
+    std::cout << "2 CHAR :\t" << c1 << " / " << c2 << std::endl;
+    std::cout << "2 STR :\t\t" << s1 << " / " << s2 << std::endl;
+    std::cout << std::endl;
 
     std::cout << "MAX BETWEEN INTS : " << ::max(i1, i2) << std::endl;
     std::cout << "MAX BETWEEN FLOATS : " << ::max(f1, f2) << std::endl;

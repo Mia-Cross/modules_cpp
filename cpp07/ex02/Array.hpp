@@ -6,7 +6,7 @@
 /*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 00:09:16 by lemarabe          #+#    #+#             */
-/*   Updated: 2021/01/20 21:29:26 by lemarabe         ###   ########.fr       */
+/*   Updated: 2021/01/24 18:53:43 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ class Array
 
         unsigned int    nbElem;
         T               *array;
-        T const *constArr;
 
     public:
 
