@@ -6,7 +6,7 @@
 /*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 00:31:26 by lemarabe          #+#    #+#             */
-/*   Updated: 2021/01/21 05:03:34 by lemarabe         ###   ########.fr       */
+/*   Updated: 2021/01/24 18:56:10 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int main()
 
     const ::Array<float> constArray(floatArray);
     std::cout << "\nCREATION D'UN ARRAY CONST\tAdresse {" << constArray << "}\n";
-    //constArray[0] = 0.1;
+   // constArray[0] = 0.1;
     std::cout << "Reading from index 0 : " << constArray[0] << std::endl;
     std::cout << "Contenu :\t";
     constArray.displayContent();
