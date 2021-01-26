@@ -1,5 +1,4 @@
-//#include "X_CLASS.hpp"
-#include "template.hpp"
+#include "X_CLASS.hpp"
 
 X_CLASS::X_CLASS() {
     std::cout << "{creation}" << this->X_STR << this->X_INT << "\n";

@@ -1,13 +1,19 @@
+############### EX_00 ###############
+
 There is a templated function easyFind(T, int) that does what the
 subject requires.
 It HAS to use STL algorithms.
 If it does not (Manual search using iterators for example), count it as wrong.
+
+############### EX_01 ###############
 
 There is a class that respects the constraints of the subject.
 Its member functions use STL algorithms to find their result, as much as possible.
 
 There's a way to add numbers that's more practical than calling addNumber
 repeatedly.
+
+############### EX_02 ###############
 
 There is a MutantStack class that inherits from std::stack (Or is
 composed of one, dealer's choice), and offers all of its member functions.
@@ -16,6 +22,8 @@ example with it.
 
 There is a test main() function that has more tests than the one
 in the subject.
+
+############### EX_03 ###############
 
 There is a program that can interpret a Brainfuck-like language.
 It functions correctly (The student has to provide test files to prove it)
@@ -26,6 +34,8 @@ then once the file is fully read, it executes the Instructions.
 It has to use STL containers and algorithms.
 If the way it works deviates too much
 from what the subject requires, count it as wrong.
+
+############### EX_04 ###############
 
 The program works as the subject requires:
 - First, it converts the

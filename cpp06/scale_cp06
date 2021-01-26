@@ -1,3 +1,5 @@
+############### EX_00 ###############
+
 Is the program running as intended, and did the student use the
 static_cast to convert values? We'll accept the use of implicit casts for
 promotion casts only.
@@ -7,9 +9,13 @@ towards the exercice's outputs if the spirit of the exercice is respected.
 Failing this exercice does not prevent from grading the next ones. I know this exercice
 can be cryptic to some students.
 
+############### EX_01 ###############
+
 Is the program running as intended, and did the student use the
 reinterpret_cast to retype the raw data?
 Remember that the raw data pointed to by the void * must be 52 bytes (24+4+24) contiguous on the heap.
+
+############### EX_02 ###############
 
 Is the program running as intended, and did the student use the
 dynamic_casts to identify the real type?
