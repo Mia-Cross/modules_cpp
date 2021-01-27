@@ -6,7 +6,7 @@
 /*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 03:39:15 by lemarabe          #+#    #+#             */
-/*   Updated: 2021/01/26 07:05:27 by lemarabe         ###   ########.fr       */
+/*   Updated: 2021/01/27 18:38:02 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,12 @@
 # include <iterator>
 
 template < typename T >
-class MutantStack : public std::stack< T >
+class MutantStack : public virtual std::stack< T >
 {
+    private:
+
+        std::deque<T> myStack;
+
     public:
 
         typedef typename std::deque<T>::iterator         iterator;
@@ -32,42 +36,37 @@ class MutantStack : public std::stack< T >
         typename std::deque<T>::const_iterator  begin() const { return (myStack.begin()); }
         typename std::deque<T>::const_iterator  end() const { return (myStack.end()); }
         
-        MutantStack() : container_type((std::deque<T>)), size_type(size_t) {}
+        MutantStack() {}
         virtual ~MutantStack() {}
         MutantStack(MutantStack const &ref) { *this = ref; }
         MutantStack &operator=(MutantStack const &ref) {
             if (this != &ref)
             {
+                while (!this->empty())
+                    this->pop();
                 this->myStack.clear();
                 for (MutantStack::const_iterator it = ref.begin(); it != ref.end(); it++)
-                    this->myStack.push_back(it);
+                    this->myStack.push_back(*it);
             }
+            return (*this);
         }
 
-        void    push(T to_add)  { myStack.push_front(to_add); }
-        T       &top()          { return (myStack.front()); }
-        T const &top() const    { return (myStack.front()); }
-        void    pop()           { myStack.pop_front(); }
-        size_t  size() const    { return (myStack.size()); }
+        void    push(T to_add) {
+            myStack.push_front(to_add);
+            std::stack<T>::push(to_add);
+        }
+        
+        void    pop() {
+            myStack.pop_front();
+            std::stack<T>::pop();
+        }
 
         void    displayValues() const {
             std::cout << "{MutantStackContent} ";
             for (const_iterator it = myStack.begin(); it != myStack.end(); it++)
-            {
                 std::cout << "[" << *it << "]  ";
-            }
             std::cout << std::endl;
         }
-
-    private:
-
-        std::deque<T> myStack;
 };
-
-// template < typename T >
-// std::stack<T>(MutantStack::MutantStack<T> const &ref)
-
-// template < typename T >
-// std::ostream &operator<<(std::ostream &out, MutantStack<T> const &in);
 
 #endif
