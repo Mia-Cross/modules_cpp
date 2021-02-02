@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 #define BONJOUR "du coup y s'est fait niquer sa mere"
 
 using namespace std;
