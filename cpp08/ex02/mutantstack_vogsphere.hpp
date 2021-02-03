@@ -6,7 +6,7 @@
 /*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 03:39:15 by lemarabe          #+#    #+#             */
-/*   Updated: 2021/02/03 23:08:34 by lemarabe         ###   ########.fr       */
+/*   Updated: 2021/01/27 18:38:02 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ class MutantStack : public virtual std::stack< T >
         typedef typename std::deque<T>::iterator         iterator;
         typedef typename std::deque<T>::const_iterator   const_iterator;
 
-        iterator        begin() { return (myStack.begin()); }
-        iterator        end() { return (myStack.end()); }
-        const_iterator  begin() const { return (myStack.begin()); }
-        const_iterator  end() const { return (myStack.end()); }
+        typename std::deque<T>::iterator        begin() { return (myStack.begin()); }
+        typename std::deque<T>::iterator        end() { return (myStack.end()); }
+        typename std::deque<T>::const_iterator  begin() const { return (myStack.begin()); }
+        typename std::deque<T>::const_iterator  end() const { return (myStack.end()); }
         
         MutantStack() {}
         virtual ~MutantStack() {}
